@@ -1,26 +1,47 @@
-.juego a {
-  display: inline-block;
-  margin: 5px 2px;
-  padding: 8px 12px;
-  font-size: 14px;
-  font-weight: bold;
-  color: white;
-  text-decoration: none;
-  border-radius: 5px;
+.juego {
+  background-color: #1c1c2b;
+  border-radius: 10px;
+  padding: 15px;
+  margin: 15px;
   text-align: center;
-  transition: background 0.3s ease;
+  width: 250px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  display: inline-block;
+  vertical-align: top;
 }
 
-/* Botón con publicidad (Cuty.io) */
-.juego a:nth-of-type(1) {
-  background-color: #f39c12; /* Naranja */
+.juego img {
+  width: 100%;
+  border-radius: 5px;
 }
 
-/* Botón directo */
-.juego a:nth-of-type(2) {
-  background-color: #27ae60; /* Verde */
+.juego h3 {
+  color: white;
+  margin-top: 10px;
 }
 
-.juego a:hover {
+.btn {
+  display: block;
+  margin: 8px auto;
+  padding: 8px 12px;
+  font-size: 13px;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 5px;
+  text-decoration: none;
+  color: white;
+  width: 85%;
+  transition: background-color 0.3s ease;
+}
+
+.btn.cuty {
+  background-color: #f39c12; /* naranja */
+}
+
+.btn.directo {
+  background-color: #2ecc71; /* verde */
+}
+
+.btn:hover {
   opacity: 0.85;
 }
