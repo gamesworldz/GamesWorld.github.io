@@ -1,126 +1,372 @@
-body {
-  margin: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background-color: #0c0f1a;
-  color: #ffffff;
-}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GamesFull Style Page</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #0c0f1a 0%, #1a1a2e 100%);
+            color: #ffffff;
+            min-height: 100vh;
+        }
 
-header {
-  background-color: #111;
-  display: flex;
-  justify-content: space-between;
-  padding: 10px 10px;
-  align-items: center;
-  border-bottom: 2px solid #00ff88;
-}
+        /* Header mejorado con gradiente */
+        header {
+            background: linear-gradient(90deg, #0a0d16 0%, #111 50%, #0a0d16 100%);
+            display: flex;
+            justify-content: space-between;
+            padding: 15px 30px;
+            align-items: center;
+            border-bottom: 3px solid #00ff88;
+            box-shadow: 0 4px 15px rgba(0, 255, 136, 0.2);
+        }
 
-.logo {
-  font-size: 24px;
-  color: #00ff88;
-  font-weight: bold;
-}
+        .logo {
+            font-size: 28px;
+            color: #00ff88;
+            font-weight: bold;
+            text-shadow: 0 0 20px rgba(0, 255, 136, 0.5);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
 
-nav a {
-  color: #ffffff;
-  margin-left: 20px;
-  text-decoration: none;
-  font-weight: bold;
-}
+        .logo::before {
+            content: "🎮";
+            font-size: 32px;
+        }
 
-nav a:hover {
-  color: #00ff88;
-}
+        nav a {
+            color: #ffffff;
+            margin-left: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 8px 16px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
 
-.seccion-juegos {
-  padding: 30px;
-}
+        nav a:hover {
+            color: #00ff88;
+            background: rgba(0, 255, 136, 0.1);
+            transform: translateY(-2px);
+        }
 
-.seccion-juegos h2 {
-  margin-bottom: 20px;
-  color: #00ff88;
-}
+        /* Sección hero similar a GamesFull */
+        .hero-section {
+            background: linear-gradient(45deg, rgba(0, 255, 136, 0.1) 0%, rgba(26, 26, 46, 0.8) 100%),
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400"><defs><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="%23ffffff" stroke-width="0.5" opacity="0.1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grid)"/></svg>');
+            padding: 60px 30px;
+            text-align: center;
+            margin-bottom: 40px;
+        }
 
-.contenedor-juegos {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-}
+        .hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: #00ff88;
+            text-shadow: 0 0 30px rgba(0, 255, 136, 0.6);
+        }
 
-.juego {
-  background-color: #1a1a2e;
-  border-radius: 10px;
-  width: 200px;
-  padding: 10px;
-  position: relative;
-  text-align: center;
-}
+        .hero-content p {
+            font-size: 1.2rem;
+            color: #cccccc;
+            max-width: 600px;
+            margin: 0 auto 30px;
+            line-height: 1.6;
+        }
 
-.juego img {
-  width: 100%;
-  border-radius: 6px;
-  height: 280px;
-  object-fit: cover;
-}
+        .btn-hero {
+            background: linear-gradient(45deg, #00ff88, #00cc6a);
+            color: #000;
+            padding: 12px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 255, 136, 0.3);
+        }
 
-.juego h3 {
-  margin: 10px 0;
-  font-size: 16px;
-  color: #ffffff;
-}
+        .btn-hero:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 255, 136, 0.4);
+        }
 
-/* 🔹 estilo base de los botones */
-.btn {
-  display: block;
-  width: 100%;
-  max-width: 180px;
-  margin: 6px auto;
-  padding: 8px 12px;
-  border-radius: 6px;
-  text-decoration: none;
-  font-weight: bold;
-  text-align: center;
-  font-size: 14px;
-}
+        .seccion-juegos {
+            padding: 30px;
+        }
 
-/* 🔹 botón de publicidad */
-.btn.publicidad {
-  background-color: #00ff88;
-  color: #000;
-}
+        .seccion-juegos h2 {
+            margin-bottom: 30px;
+            color: #00ff88;
+            font-size: 2rem;
+            text-align: left;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
 
-/* 🔹 botón directo */
-.btn.directo {
-  background-color: #ff5555;
-  color: #fff;
-}
+        .seccion-juegos h2::after {
+            content: "";
+            flex: 1;
+            height: 2px;
+            background: linear-gradient(90deg, #00ff88, transparent);
+        }
 
-.etiqueta {
-  position: absolute;
-  top: 10px;
-  left: -5px;
-  background-color: #00ff88;
-  color: #000;
-  font-size: 12px;
-  font-weight: bold;
-  padding: 4px 8px;
-  border-radius: 0 5px 5px 0;
-}
+        .contenedor-juegos {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 25px;
+            padding: 20px 0;
+        }
 
-.etiqueta.actualizado {
-  background-color: gold;
-}
+        .juego {
+            background: linear-gradient(145deg, #1a1a2e 0%, #16213e 100%);
+            border-radius: 15px;
+            padding: 15px;
+            position: relative;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 255, 136, 0.2);
+            overflow: hidden;
+        }
 
-.etiqueta.nuevo {
-  background-color: #00ff88;
-}
+        .juego::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 255, 136, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
 
-@media (max-width: 768px) {
-  .contenedor-juegos {
-    justify-content: center;
-  }
+        .juego:hover::before {
+            left: 100%;
+        }
 
-  .juego {
-    width: 100%;
-    max-width: 300px;
-  }
-}
+        .juego:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0, 255, 136, 0.2);
+            border-color: #00ff88;
+        }
+
+        .juego img {
+            width: 100%;
+            border-radius: 10px;
+            height: 280px;
+            object-fit: cover;
+            transition: all 0.3s ease;
+        }
+
+        .juego:hover img {
+            transform: scale(1.05);
+            filter: brightness(1.1);
+        }
+
+        .juego h3 {
+            margin: 15px 0;
+            font-size: 16px;
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        /* Estilos mejorados de los botones */
+        .btn {
+            display: block;
+            width: 100%;
+            max-width: 180px;
+            margin: 8px auto;
+            padding: 10px 15px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            text-align: center;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .btn:hover::before {
+            width: 200px;
+            height: 200px;
+        }
+
+        /* Botón de publicidad */
+        .btn.publicidad {
+            background: linear-gradient(45deg, #00ff88, #00cc6a);
+            color: #000;
+            box-shadow: 0 4px 10px rgba(0, 255, 136, 0.3);
+        }
+
+        .btn.publicidad:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(0, 255, 136, 0.4);
+        }
+
+        /* Botón directo */
+        .btn.directo {
+            background: linear-gradient(45deg, #ff5555, #ff3333);
+            color: #fff;
+            box-shadow: 0 4px 10px rgba(255, 85, 85, 0.3);
+        }
+
+        .btn.directo:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(255, 85, 85, 0.4);
+        }
+
+        .etiqueta {
+            position: absolute;
+            top: 15px;
+            left: -5px;
+            font-size: 11px;
+            font-weight: bold;
+            padding: 6px 12px;
+            border-radius: 0 8px 8px 0;
+            z-index: 10;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .etiqueta.actualizado {
+            background: linear-gradient(45deg, gold, #ffcc00);
+            color: #000;
+        }
+
+        .etiqueta.nuevo {
+            background: linear-gradient(45deg, #00ff88, #00cc6a);
+            color: #000;
+        }
+
+        /* Efectos adicionales */
+        .juego .etiqueta {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+            
+            .contenedor-juegos {
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+                justify-items: center;
+                gap: 20px;
+            }
+            
+            .juego {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            header {
+                padding: 15px 20px;
+            }
+            
+            nav a {
+                margin-left: 15px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">GamesFull</div>
+        <nav>
+            <a href="#inicio">Inicio</a>
+            <a href="#juegos">Juegos</a>
+            <a href="#colecciones">Colecciones</a>
+            <a href="#categorias">Categorías</a>
+        </nav>
+    </header>
+
+    <div class="hero-section">
+        <div class="hero-content">
+            <h1>Los Mejores Juegos</h1>
+            <p>Descubre una increíble colección de juegos, desde aventuras épicas hasta desafíos estratégicos. Encuentra tu próximo juego favorito aquí.</p>
+            <a href="#juegos" class="btn-hero">Explorar Juegos</a>
+        </div>
+    </div>
+
+    <div class="seccion-juegos">
+        <h2>Últimos juegos</h2>
+        <div class="contenedor-juegos">
+            <div class="juego">
+                <div class="etiqueta nuevo">Nuevo</div>
+                <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?w=300&h=400&fit=crop" alt="The Rogue Prince">
+                <h3>The Rogue Prince of Persia</h3>
+                <a href="#" class="btn publicidad">Jugar Ahora</a>
+                <a href="#" class="btn directo">Descarga Directa</a>
+            </div>
+
+            <div class="juego">
+                <div class="etiqueta nuevo">Nuevo</div>
+                <img src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=300&h=400&fit=crop" alt="Sword of the Sea">
+                <h3>Sword of the Sea</h3>
+                <a href="#" class="btn publicidad">Jugar Ahora</a>
+                <a href="#" class="btn directo">Descarga Directa</a>
+            </div>
+
+            <div class="juego">
+                <div class="etiqueta actualizado">Actualizado</div>
+                <img src="https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=300&h=400&fit=crop" alt="Dying Light 2">
+                <h3>Dying Light 2 Stay Human Ultimate Edition</h3>
+                <a href="#" class="btn publicidad">Jugar Ahora</a>
+                <a href="#" class="btn directo">Descarga Directa</a>
+            </div>
+
+            <div class="juego">
+                <div class="etiqueta nuevo">Nuevo</div>
+                <img src="https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=300&h=400&fit=crop" alt="Warhammer 40000">
+                <h3>Warhammer 40000 Dawn of War Definitive Edition</h3>
+                <a href="#" class="btn publicidad">Jugar Ahora</a>
+                <a href="#" class="btn directo">Descarga Directa</a>
+            </div>
+
+            <div class="juego">
+                <div class="etiqueta nuevo">Nuevo</div>
+                <img src="https://images.unsplash.com/photo-1552820728-8b83bb6b773f?w=300&h=400&fit=crop" alt="Call of Duty">
+                <h3>Call of Duty Modern Warfare III</h3>
+                <a href="#" class="btn publicidad">Jugar Ahora</a>
+                <a href="#" class="btn directo">Descarga Directa</a>
+            </div>
+
+            <div class="juego">
+                <div class="etiqueta nuevo">Nuevo</div>
+                <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?w=300&h=400&fit=crop" alt="Echoes of the End">
+                <h3>Echoes of the End</h3>
+                <a href="#" class="btn publicidad">Jugar Ahora</a>
+                <a href="#" class="btn directo">Descarga Directa</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
