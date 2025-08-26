@@ -1,4 +1,4 @@
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -14,12 +14,26 @@
         body {
             margin: 0;
             font-family: 'Rajdhani', 'Segoe UI', sans-serif;
-            background: linear-gradient(135deg, #0a0a0a 0%, #1a0a2e 25%, #16213e 50%, #0f1419 75%, #000000 100%);
-            background-size: 400% 400%;
-            animation: gradientShift 8s ease infinite;
+            background-image: url('https://i.pinimg.com/736x/65/13/9a/65139a35a7692f42ce13a6f3150f89f3.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
             color: #ffffff;
             overflow-x: hidden;
             position: relative;
+        }
+
+        /* Overlay oscuro para mantener legibilidad */
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: -2;
         }
 
         /* Partículas de fondo */
@@ -30,11 +44,10 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: 
-                radial-gradient(2px 2px at 20px 30px, #00ff88, transparent),
-                radial-gradient(2px 2px at 40px 70px, #ff5555, transparent),
-                radial-gradient(1px 1px at 90px 40px, #00ffff, transparent),
-                radial-gradient(1px 1px at 130px 80px, #ffff00, transparent);
+            background-image: radial-gradient(2px 2px at 20px 30px, #00ff88, transparent),
+                              radial-gradient(2px 2px at 40px 70px, #ff5555, transparent),
+                              radial-gradient(1px 1px at 90px 40px, #00ffff, transparent),
+                              radial-gradient(1px 1px at 130px 80px, #ffff00, transparent);
             background-size: 150px 150px;
             animation: particleFloat 20s linear infinite;
             opacity: 0.1;
@@ -80,10 +93,7 @@
             font-weight: 900;
             text-transform: uppercase;
             letter-spacing: 2px;
-            text-shadow: 
-                0 0 10px #00ff88,
-                0 0 20px #00ff88,
-                0 0 40px #00ff88;
+            text-shadow: 0 0 10px #00ff88, 0 0 20px #00ff88, 0 0 40px #00ff88;
             animation: logoGlow 2s ease-in-out infinite alternate;
             position: relative;
         }
@@ -148,9 +158,7 @@
 
         nav a:hover {
             color: #00ff88;
-            box-shadow: 
-                0 0 20px rgba(0, 255, 136, 0.5),
-                inset 0 0 20px rgba(0, 255, 136, 0.1);
+            box-shadow: 0 0 20px rgba(0, 255, 136, 0.5), inset 0 0 20px rgba(0, 255, 136, 0.1);
             border: 2px solid rgba(0, 255, 136, 0.3);
             transform: translateY(-3px) scale(1.05);
         }
@@ -250,9 +258,7 @@
 
         .juego:hover {
             transform: translateY(-15px) scale(1.05);
-            box-shadow: 
-                0 20px 40px rgba(0, 0, 0, 0.4),
-                0 0 40px rgba(0, 255, 136, 0.3);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 40px rgba(0, 255, 136, 0.3);
         }
 
         .juego img {
@@ -377,15 +383,11 @@
 
         /* Efectos de resplandor adicionales */
         .juego:nth-child(odd):hover {
-            box-shadow: 
-                0 20px 40px rgba(0, 0, 0, 0.4),
-                0 0 40px rgba(0, 255, 255, 0.3);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 40px rgba(0, 255, 255, 0.3);
         }
 
         .juego:nth-child(even):hover {
-            box-shadow: 
-                0 20px 40px rgba(0, 0, 0, 0.4),
-                0 0 40px rgba(255, 85, 85, 0.3);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 40px rgba(255, 85, 85, 0.3);
         }
 
         @media (max-width: 768px) {
@@ -394,7 +396,7 @@
                 gap: 20px;
                 padding: 0 15px;
             }
-            
+
             .juego {
                 max-width: 400px;
                 margin: 0 auto;
@@ -422,7 +424,7 @@
             .seccion-juegos {
                 padding: 20px 15px;
             }
-            
+
             .seccion-juegos h2 {
                 font-size: 1.8rem;
                 letter-spacing: 2px;
