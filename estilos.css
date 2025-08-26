@@ -193,7 +193,7 @@
             transform: translateX(-50%);
             width: 100px;
             height: 4px;
-            linear-gradient(90deg, #ff4500, #ff6600, #cc3300, #ff4500)
+            background: linear-gradient(90deg, #00ff88, #00ffff, #ff5555);
             border-radius: 2px;
             animation: lineGlow 2s ease-in-out infinite;
         }
@@ -509,5 +509,6 @@
     </div>
 </body>
 </html>
+
 
 
