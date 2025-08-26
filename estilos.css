@@ -14,23 +14,27 @@
         body {
             margin: 0;
             font-family: 'Rajdhani', 'Segoe UI', sans-serif;
-            background: linear-gradient(135deg, #0a0a0a 0%, #1a0a2e 25%, #16213e 50%, #0f1419 75%, #000000 100%);
-            background-size: 400% 400%;
-            animation: gradientShift 8s ease infinite;
+            background-image: url('https://i.pinimg.com/736x/65/13/9a/65139a35a7692f42ce13a6f3150f89f3.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
             color: #ffffff;
             overflow-x: hidden;
             position: relative;
         }
 
-        /* 🔹 FONDO PERSONALIZADO MEDIANTE URL - AGREGA TU URL AQUÍ 🔹 */
-        .custom-background {
-            background-image: url('TU_URL_AQUI');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
+        /* Overlay oscuro para mantener legibilidad */
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: -2;
         }
-        /* Para activar el fondo personalizado, cambia la clase del body de esta forma: <body class="custom-background"> */
 
         /* Partículas de fondo */
         body::before {
@@ -281,7 +285,7 @@
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
 
-        /* 🔹 estilo base de los botones */
+        /* estilo base de los botones */
         .btn {
             display: block;
             width: 100%;
@@ -319,7 +323,7 @@
             height: 300px;
         }
 
-        /* 🔹 botón de publicidad */
+        /* boton de publicidad */
         .btn.publicidad {
             background: linear-gradient(135deg, #00ff88, #00dd77);
             color: #000;
@@ -332,7 +336,7 @@
             box-shadow: 0 8px 25px rgba(0, 255, 136, 0.6);
         }
 
-        /* 🔹 botón directo */
+        /* boton directo */
         .btn.directo {
             background: linear-gradient(135deg, #ff5555, #ff3333);
             color: #fff;
@@ -458,7 +462,7 @@
                 <img src="https://via.placeholder.com/200x280/1a1a2e/00ff88?text=GAME+1" alt="Juego 1">
                 <h3>Cyber Adventure</h3>
                 <a href="#" class="btn publicidad">Con Publicidad</a>
-                <a href="#" class="btn directo">Jugar Directo</a>
+                <a href="#" class="btn directo">Descargar Directo</a>
             </div>
 
             <!-- Ejemplo de juego con etiqueta "actualizado" -->
@@ -467,7 +471,7 @@
                 <img src="https://via.placeholder.com/200x280/1a1a2e/ff5555?text=GAME+2" alt="Juego 2">
                 <h3>Neon Racing</h3>
                 <a href="#" class="btn publicidad">Con Publicidad</a>
-                <a href="#" class="btn directo">Jugar Directo</a>
+                <a href="#" class="btn directo">Descargar Directo</a>
             </div>
 
             <!-- Ejemplo de juego normal -->
@@ -475,7 +479,7 @@
                 <img src="https://via.placeholder.com/200x280/1a1a2e/00ffff?text=GAME+3" alt="Juego 3">
                 <h3>Space Warriors</h3>
                 <a href="#" class="btn publicidad">Con Publicidad</a>
-                <a href="#" class="btn directo">Jugar Directo</a>
+                <a href="#" class="btn directo">Descargar Directo</a>
             </div>
 
             <!-- Más juegos de ejemplo -->
@@ -484,14 +488,14 @@
                 <img src="https://via.placeholder.com/200x280/1a1a2e/ffff00?text=GAME+4" alt="Juego 4">
                 <h3>Pixel Heroes</h3>
                 <a href="#" class="btn publicidad">Con Publicidad</a>
-                <a href="#" class="btn directo">Jugar Directo</a>
+                <a href="#" class="btn directo">Descargar Directo</a>
             </div>
 
             <div class="juego">
                 <img src="https://via.placeholder.com/200x280/1a1a2e/ff8800?text=GAME+5" alt="Juego 5">
                 <h3>Dark Fantasy</h3>
                 <a href="#" class="btn publicidad">Con Publicidad</a>
-                <a href="#" class="btn directo">Jugar Directo</a>
+                <a href="#" class="btn directo">Descargar Directo</a>
             </div>
 
             <div class="juego">
@@ -499,13 +503,9 @@
                 <img src="https://via.placeholder.com/200x280/1a1a2e/8800ff?text=GAME+6" alt="Juego 6">
                 <h3>Battle Royale</h3>
                 <a href="#" class="btn publicidad">Con Publicidad</a>
-                <a href="#" class="btn directo">Jugar Directo</a>
+                <a href="#" class="btn directo">Descargar Directo</a>
             </div>
         </div>
     </div>
 </body>
 </html>
-
-
-
-
