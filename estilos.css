@@ -287,7 +287,8 @@
 
         /* estilo base de los botones */
         .btn {
-            display: block;
+            display: block !important;
+            visibility: visible !important;
             width: 100%;
             max-width: 180px;
             margin: 8px auto;
@@ -303,6 +304,7 @@
             overflow: hidden;
             transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             border: 2px solid transparent;
+            opacity: 1 !important;
         }
 
         .btn::before {
@@ -509,3 +511,4 @@
     </div>
 </body>
 </html>
+
