@@ -1,405 +1,189 @@
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;500;700&display=swap');
-
+/* ==========================
+   ESTILOS GLOBALES
+========================== */
 * {
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-    margin: 0;
-    font-family: 'Rajdhani', 'Segoe UI', sans-serif;
-    background-image: url('https://i.pinimg.com/736x/56/a8/39/56a8398cc2fe64c04a1941b1bf461172.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    color: #ffffff;
-    overflow-x: hidden;
-    position: relative;
+    font-family: Arial, sans-serif;
+    background: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
 }
 
-body::after {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.4);
-    z-index: -2;
+a {
+    color: #0077cc;
+    text-decoration: none;
 }
 
+a:hover {
+    text-decoration: underline;
+}
+
+/* ==========================
+   CABECERA
+========================== */
 header {
-    background: linear-gradient(90deg, rgba(0,0,0,0.9) 0%, rgba(17,17,17,0.95) 50%, rgba(0,0,0,0.9) 100%);
-    backdrop-filter: blur(10px);
-    border-bottom: 3px solid transparent;
-    border-image: linear-gradient(90deg, #00ff88, #00ffff, #ff5555, #00ff88) 1;
-    display: flex;
-    justify-content: space-between;
-    padding: 15px 20px;
-    align-items: center;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    box-shadow: 0 5px 30px rgba(0, 255, 136, 0.2);
-    transition: all 0.3s ease;
-}
-
-header:hover {
-    box-shadow: 0 8px 40px rgba(0, 255, 136, 0.4);
-    transform: translateY(-2px);
-}
-
-.logo {
-    font-family: 'Orbitron', monospace;
-    font-size: 28px;
-    color: #00ff88;
-    font-weight: 900;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    text-shadow: 0 0 10px #00ff88, 0 0 20px #00ff88, 0 0 40px #00ff88;
-    animation: logoGlow 2s ease-in-out infinite alternate;
-    position: relative;
-}
-
-@keyframes logoGlow {
-    from { text-shadow: 0 0 10px #00ff88, 0 0 20px #00ff88, 0 0 40px #00ff88; }
-    to { text-shadow: 0 0 15px #00ff88, 0 0 30px #00ff88, 0 0 60px #00ff88; }
-}
-
-nav {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-nav a {
-    color: #ffffff;
-    text-decoration: none;
-    font-weight: 700;
-    font-size: 16px;
-    padding: 10px 20px;
-    border-radius: 25px;
-    position: relative;
-    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    overflow: hidden;
-}
-
-nav a:hover {
-    color: #00ff88;
-    box-shadow: 0 0 20px rgba(0, 255, 136, 0.5), inset 0 0 20px rgba(0, 255, 136, 0.1);
-    border: 2px solid rgba(0, 255, 136, 0.3);
-    transform: translateY(-3px) scale(1.05);
-}
-
-.seccion-juegos {
-    padding: 40px 30px;
-}
-
-.seccion-juegos h2 {
-    margin-bottom: 30px;
-    color: #00ff88;
-    font-family: 'Orbitron', monospace;
-    font-size: 2.5rem;
-    font-weight: 700;
-    text-align: center;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    position: relative;
-    background: linear-gradient(45deg, #00ff88, #00ffff, #ff5555);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
-
-.contenedor-juegos {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 20px;
-    max-width: 1400px;
-    margin: 0 auto;
-}
-
-.juego {
-    background: linear-gradient(145deg, rgba(26, 26, 46, 0.9), rgba(22, 33, 62, 0.9));
-    backdrop-filter: blur(10px);
-    border-radius: 20px;
+    background: #333;
+    color: #fff;
     padding: 20px;
-    position: relative;
     text-align: center;
-    border: 2px solid transparent;
-    background-clip: padding-box;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    overflow: hidden;
-    cursor: pointer;
 }
 
-.juego:hover {
-    transform: translateY(-15px) scale(1.05);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 40px rgba(0, 255, 136, 0.3);
-}
-
-.juego img {
-    width: 100%;
-    border-radius: 12px;
-    height: 280px;
-    object-fit: cover;
-    transition: all 0.4s ease;
-    filter: brightness(0.9) contrast(1.1);
-}
-
-.juego:hover img {
-    filter: brightness(1.1) contrast(1.2) saturate(1.3);
-    transform: scale(1.05);
-}
-
-.juego h3 {
-    margin: 15px 0 10px 0;
-    font-size: 18px;
-    color: #ffffff;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-}
-
-.detalles-juego {
-    display: none;
-    margin-top: 15px;
-    padding: 15px;
-    background: rgba(0, 0, 0, 0.7);
-    border-radius: 10px;
-    backdrop-filter: blur(5px);
-}
-
-.detalles-juego .btn {
-    display: block;
-    width: 100%;
-    max-width: 180px;
-    margin: 8px auto;
-    padding: 12px 16px;
-    border-radius: 25px;
-    text-decoration: none;
-    font-weight: 700;
-    text-align: center;
-    font-size: 14px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    position: relative;
-    overflow: hidden;
-    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    border: 2px solid transparent;
-}
-
-.btn.publicidad {
-    background: linear-gradient(135deg, #00ff88, #00dd77);
-    color: #000;
-    box-shadow: 0 4px 15px rgba(0, 255, 136, 0.4);
-}
-
-.btn.publicidad:hover {
-    background: linear-gradient(135deg, #00dd77, #00ff88);
-    transform: translateY(-3px) scale(1.05);
-    box-shadow: 0 8px 25px rgba(0, 255, 136, 0.6);
-}
-
-.btn.directo {
-    background: linear-gradient(135deg, #ff5555, #ff3333);
-    color: #fff;
-    box-shadow: 0 4px 15px rgba(255, 85, 85, 0.4);
-}
-
-.btn.directo:hover {
-    background: linear-gradient(135deg, #ff3333, #ff5555);
-    transform: translateY(-3px) scale(1.05);
-    box-shadow: 0 8px 25px rgba(255, 85, 85, 0.6);
-}
-
-.etiqueta {
-    position: absolute;
-    top: 15px;
-    left: -8px;
-    font-size: 12px;
-    font-weight: 900;
-    padding: 6px 12px;
-    border-radius: 0 15px 15px 0;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    z-index: 10;
-    animation: tagPulse 2s ease-in-out infinite;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-}
-
-@keyframes tagPulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.1); }
-}
-
-.etiqueta.nuevo {
-    background: linear-gradient(135deg, #00ff88, #00dd77);
-    color: #000;
-}
-
-.comentarios {
-    margin-top: 15px;
-    padding: 10px;
-    background: rgba(0, 0, 0, 0.5);
-    border-radius: 10px;
-}
-
-.comentarios h4 {
-    margin: 0 0 10px 0;
-    color: #00ff88;
-    font-size: 16px;
-}
-
-.comentarios form {
-    display: flex;
-    gap: 10px;
-    margin-top: 10px;
-}
-
-.comentarios input {
-    flex: 1;
-    padding: 8px;
-    border: none;
-    border-radius: 5px;
-    background: rgba(255, 255, 255, 0.1);
-    color: #fff;
-    border: 1px solid rgba(0, 255, 136, 0.3);
-}
-
-.comentarios button {
-    padding: 8px 15px;
-    background: #00ff88;
-    color: #000;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: 700;
-}
-
-.comentarios button:hover {
-    background: #00dd77;
-}
-
-.lista-comentarios {
-    max-height: 200px;
-    overflow-y: auto;
+header h1 {
     margin-bottom: 10px;
 }
 
-.comentario {
-    padding: 8px;
-    margin-bottom: 8px;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 5px;
-    border-left: 3px solid #00ff88;
+/* ==========================
+   CONTENEDOR PRINCIPAL
+========================== */
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 20px auto;
 }
 
-@media (max-width: 768px) {
-    .contenedor-juegos {
-        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-        gap: 15px;
-    }
+/* ==========================
+   PIE DE PÁGINA
+========================== */
+footer {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
 }
 
-/* CSS del chat */
-.chat-float-button {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  background: #00ff88;
-  color: #000;
-  border: none;
-  cursor: pointer;
-  z-index: 1000;
-  font-size: 24px;
-  box-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+/* ==========================
+   BOTÓN FLOTANTE DE CHAT
+========================== */
+.chat-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #0077cc;
+    color: #fff;
+    border: none;
+    padding: 12px 18px;
+    border-radius: 50px;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    transition: background 0.3s ease;
+    z-index: 1000;
 }
 
-.chat-container {
-  position: fixed;
-  bottom: 90px;
-  right: 20px;
-  width: 300px;
-  max-height: 400px;
-  background: rgba(0, 0, 0, 0.8);
-  border-radius: 10px;
-  backdrop-filter: blur(10px);
-  border: 1px solid #00ff88;
-  z-index: 1000;
-  display: none;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+.chat-button:hover {
+    background: #005fa3;
 }
 
+/* ==========================
+   VENTANA DE CHAT
+========================== */
+.chat-box {
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    width: 320px;
+    max-height: 450px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    display: none;
+    flex-direction: column;
+    overflow: hidden;
+    z-index: 1000;
+}
+
+/* CABECERA DEL CHAT */
 .chat-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px;
-  background: #00ff88;
-  color: #000;
-  font-weight: bold;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
+    background: #0077cc;
+    color: #fff;
+    padding: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.chat-header h4 {
+    margin: 0;
+    font-size: 16px;
 }
 
 .chat-header button {
-  background: none;
-  border: none;
-  font-size: 18px;
-  cursor: pointer;
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-size: 18px;
+    cursor: pointer;
 }
 
+/* MENSAJES DEL CHAT */
 .chat-messages {
-  height: 250px;
-  overflow-y: auto;
-  padding: 10px;
-  color: #fff;
-  background: rgba(0, 0, 0, 0.7);
+    flex: 1;
+    padding: 12px;
+    overflow-y: auto;
+    background: #f9f9f9;
 }
 
-.chat-form {
-  display: flex;
-  padding: 10px;
-  background: #111;
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
+/* MENSAJE DEL USUARIO */
+.chat-message.user {
+    background: #0077cc;
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 15px 15px 0 15px;
+    margin: 8px 0;
+    max-width: 80%;
+    align-self: flex-end;
 }
 
-.chat-form input {
-  flex: 1;
-  padding: 8px;
-  border: none;
-  border-radius: 5px;
-  background: rgba(255, 255, 255, 0.1);
-  color: #fff;
+/* MENSAJE DEL SOPORTE */
+.chat-message.support {
+    background: #e5e5e5;
+    color: #333;
+    padding: 8px 12px;
+    border-radius: 15px 15px 15px 0;
+    margin: 8px 0;
+    max-width: 80%;
+    align-self: flex-start;
 }
 
-.chat-form button {
-  padding: 8px 15px;
-  margin-left: 5px;
-  background: #00ff88;
-  color: #000;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
+/* INPUT DEL CHAT */
+.chat-input {
+    display: flex;
+    border-top: 1px solid #ddd;
 }
 
-.mensaje {
-  margin-bottom: 8px;
-  padding: 8px;
-  background: rgba(0, 255, 136, 0.2);
-  border-radius: 5px;
-  word-wrap: break-word;
+.chat-input input {
+    flex: 1;
+    border: none;
+    padding: 12px;
+    font-size: 14px;
+    outline: none;
+}
+
+.chat-input button {
+    background: #0077cc;
+    color: #fff;
+    border: none;
+    padding: 12px 16px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.chat-input button:hover {
+    background: #005fa3;
+}
+
+/* ==========================
+   RESPONSIVE
+========================== */
+@media (max-width: 600px) {
+    .chat-box {
+        width: 95%;
+        right: 2.5%;
+    }
 }
