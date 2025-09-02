@@ -18,13 +18,13 @@
   <script>
     // Configuración de Firebase (REEMPLAZA CON TUS DATOS)
     const firebaseConfig = {
-      apiKey: "AIzaSyDq4QyGKwXxTQqLhFkJKwXxTz1234567890", // Reemplaza con tu API Key
-      authDomain: "gamesworld-chat.firebaseapp.com", // Reemplaza con tu dominio
-      databaseURL: "https://gamesworld-chat-default-rtdb.firebaseio.com", // Reemplaza con tu URL de Realtime Database
-      projectId: "gamesworld-chat", // Reemplaza con tu Project ID
-      storageBucket: "gamesworld-chat.appspot.com", // Reemplaza con tu Storage Bucket
-      messagingSenderId: "1234567890", // Reemplaza con tu Messaging Sender ID
-      appId: "1:1234567890:web:abcdef1234567890" // Reemplaza con tu App ID
+      apiKey: "TU_API_KEY",
+      authDomain: "TU_PROYECTO.firebaseapp.com",
+      databaseURL: "https://TU_PROYECTO.firebaseio.com",
+      projectId: "TU_PROYECTO",
+      storageBucket: "TU_PROYECTO.appspot.com",
+      messagingSenderId: "TU_SENDER_ID",
+      appId: "TU_APP_ID"
     };
     firebase.initializeApp(firebaseConfig);
     const database = firebase.database();
@@ -43,7 +43,6 @@
   <section class="seccion-juegos">
     <h2>Últimos juegos</h2>
     <div class="contenedor-juegos">
-      <!-- Los juegos se mantienen exactamente igual que en tu código original -->
       <!-- 🎮 Juego 1 -->
       <div class="juego">
         <div class="etiqueta nuevo">Nuevo</div>
@@ -62,8 +61,402 @@
           </div>
         </div>
       </div>
-      <!-- Resto de los juegos (del 2 al 23) -->
-      <!-- Mantén exactamente igual que en tu código original -->
+      <!-- 🎮 Juego 2 -->
+      <div class="juego">
+        <div class="etiqueta nuevo">Actualizado</div>
+        <img src="https://www.ultimagame.es/left-4-dead-2/imagen-i4472-pge.jpg" alt="left 4 dead 2" onclick="mostrarDetalles('juego2')">
+        <h3>Left 4 Dead 2</h3>
+        <div class="detalles-juego" id="juego2">
+          <a href="https://cuty.io/M6coKShNc" target="_blank" class="btn publicidad">Descargar (con publicidad)</a>
+          <a href="https://gofile.io/d/XA25VH" target="_blank" class="btn directo">Descargar directo</a>
+          <div class="comentarios">
+            <h4>Comentarios</h4>
+            <div class="lista-comentarios" id="comentarios-juego2"></div>
+            <form onsubmit="agregarComentario(event, 'juego2')">
+              <input type="text" placeholder="Escribe tu comentario..." required>
+              <button type="submit">Enviar</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <!-- 🎮 Juego 3 -->
+      <div class="juego">
+        <div class="etiqueta nuevo">Nuevo</div>
+        <img src="https://i.ytimg.com/vi/C3kKQcSfkEY/maxresdefault.jpg" alt="Resident Evil 2" onclick="mostrarDetalles('juego3')">
+        <h3>Resident Evil 2 PC</h3>
+        <div class="detalles-juego" id="juego3">
+          <a href="https://cuty.io/Ytxqb4gG8SW2" target="_blank" class="btn publicidad">Descargar (con publicidad)</a>
+          <a href="https://www.mediafire.com/file/g0hsuxggst9ka9a/RE21999PG.GamezFull.com.rar/file" target="_blank" class="btn directo">Descargar directo</a>
+          <div class="comentarios">
+            <h4>Comentarios</h4>
+            <div class="lista-comentarios" id="comentarios-juego3"></div>
+            <form onsubmit="agregarComentario(event, 'juego3')">
+              <input type="text" placeholder="Escribe tu comentario..." required>
+              <button type="submit">Enviar</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <!-- 🎮 Juego 4 -->
+      <div class="juego">
+        <div class="etiqueta nuevo">Nuevo</div>
+        <img src="https://www.blizzboygames.net/wp-content/uploads/2018/09/TECHF.jpg" alt="Teaching Feeling 5.0" onclick="mostrarDetalles('juego4')">
+        <h3>Teaching Feeling 5.0</h3>
+        <div class="detalles-juego" id="juego4">
+          <a href="https://cuty.io/yli6p7hRy67d" target="_blank" class="btn publicidad">Descargar (con publicidad)</a>
+          <a href="https://gofile.io/d/D7G6um" target="_blank" class="btn directo">Descargar directo</a>
+          <div class="comentarios">
+            <h4>Comentarios</h4>
+            <div class="lista-comentarios" id="comentarios-juego4"></div>
+            <form onsubmit="agregarComentario(event, 'juego4')">
+              <input type="text" placeholder="Escribe tu comentario..." required>
+              <button type="submit">Enviar</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <!-- 🎮 Juego 5 -->
+      <div class="juego">
+        <div class="etiqueta nuevo">Nuevo</div>
+        <img src="https://cl2.buscafs.com/www.levelup.com/public/uploads/images/41822_256x326.jpg" alt="Silent Hill 3" onclick="mostrarDetalles('juego5')">
+        <h3>Silent Hill 3 PC TORRENT</h3>
+        <div class="detalles-juego" id="juego5">
+          <a href="https://cuty.io/C0SvbV" target="_blank" class="btn publicidad">Descargar (con publicidad)</a>
+          <a href="https://gofile.io/d/yB0zbk" target="_blank" class="btn directo">Descargar directo</a>
+          <div class="comentarios">
+            <h4>Comentarios</h4>
+            <div class="lista-comentarios" id="comentarios-juego5"></div>
+            <form onsubmit="agregarComentario(event, 'juego5')">
+              <input type="text" placeholder="Escribe tu comentario..." required>
+              <button type="submit">Enviar</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <!-- 🎮 Juego 6 -->
+      <div class="juego">
+        <div class="etiqueta nuevo">Nuevo</div>
+        <img src="https://media.vandal.net/m/1460/200441523201_1.jpg" alt="Far Cry PC TORRENT" onclick="mostrarDetalles('juego6')">
+        <h3>Far Cry PC TORRENT</h3>
+        <div class="detalles-juego" id="juego6">
+          <a href="https://cuty.io/PUtFolAzr" target="_blank" class="btn publicidad">Descargar (con publicidad)</a>
+          <a href="https://pixeldrain.com/u/VcSLiZnz" target="_blank" class="btn directo">Descargar directo</a>
+          <div class="comentarios">
+            <h4>Comentarios</h4>
+            <div class="lista-comentarios" id="comentarios-juego6"></div>
+            <form onsubmit="agregarComentario(event, 'juego6')">
+              <input type="text" placeholder="Escribe tu comentario..." required>
+              <button type="submit">Enviar</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <!-- 🎮 Juego 7 -->
+      <div class="juego">
+        <div class="etiqueta nuevo">Nuevo</div>
+        <img src="https://cdn.cdkeys.com/media/catalog/product/f/a/far-cry-2-fortunes-edition-pc-steam.jpg" alt="Far Cry 2 PC" onclick="mostrarDetalles('juego7')">
+        <h3>Far Cry 2 PC</h3>
+        <div class="detalles-juego" id="juego7">
+          <a href="https://cuty.io/wgeHh0Q" target="_blank" class="btn publicidad">Descargar (con publicidad)</a>
+          <a href="https://pixeldrain.com/u/dPKVwh81" target="_blank" class="btn directo">Descargar directo</a>
+          <div class="comentarios">
+            <h4>Comentarios</h4>
+            <div class="lista-comentarios" id="comentarios-juego7"></div>
+            <form onsubmit="agregarComentario(event, 'juego7')">
+              <input type="text" placeholder="Escribe tu comentario..." required>
+              <button type="submit">Enviar</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <!-- 🎮 Juego 8 -->
+      <div class="juego">
+        <div class="etiqueta nuevo">Nuevo</div>
+        <img src="https://es.static.webuy.com/product_images/Juegos/PC%20Juegos/5021290055339_l.jpg" alt="Tomb Raider: Game of the Year Edition 2013" onclick="mostrarDetalles('juego8')">
+        <h3>Tomb Raider: Game of the Year Edition 2013</h3>
+        <div class="detalles-juego" id="juego8">
+          <a href="https://cuty.io/LJ3E" target="_blank" class="btn publicidad">Descargar (con publicidad)</a>
+          <a href="https://www.mediafire.com/file/cxvv59b1gzqhd65/TR2013PG.rar/file" target="_blank" class="btn directo">Descargar directo</a>
+          <div class="comentarios">
+            <h4>Comentarios</h4>
+            <div class="lista-comentarios" id="comentarios-juego8"></div>
+            <form onsubmit="agregarComentario(event, 'juego8')">
+              <input type="text" placeholder="Escribe tu comentario..." required>
+              <button type="submit">Enviar</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <!-- 🎮 Juego 9 -->
+      <div class="juego">
+        <div class="etiqueta nuevo">Nuevo</div>
+        <img src="https://static.posters.cz/image/750/13147.jpg" alt="Far Cry 3 Complete Collection [PC]" onclick="mostrarDetalles('juego9')">
+        <h3>Far Cry 3 Complete Collection [PC]</h3>
+        <div class="detalles-juego" id="juego9">
+          <a href="https://cuty.io/QfKHYViryoLY" target="_blank" class="btn publicidad">Descargar (con publicidad)</a>
+          <a href="https://pixeldrain.com/u/HBUV73bC" target="_blank" class="btn directo">Descargar directo</a>
+          <div class="comentarios">
+            <h4>Comentarios</h4>
+            <div class="lista-comentarios" id="comentarios-juego9"></div>
+            <form onsubmit="agregarComentario(event, 'juego9')">
+              <input type="text" placeholder="Escribe tu comentario..." required>
+              <button type="submit">Enviar</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <!-- 🎮 Juego 10 -->
+      <div class="juego">
+        <div class="etiqueta nuevo">Nuevo</div>
+        <img src="https://cdn.cdkeys.com/496x700/media/catalog/product/f/a/far_cry_4_gold_edition_pc_1.jpg" alt="Far Cry 4 Gold Edition PC Game [Full] [RePack]" onclick="mostrarDetalles('juego10')">
+        <h3>Far Cry 4 Gold Edition PC Game [Full] [RePack]</h3>
+        <div class="detalles-juego" id="juego10">
+          <a href="https://cuty.io/m7Dus" target="_blank" class="btn publicidad">Descargar (con publicidad)</a>
+          <a href="https://www.mediafire.com/folder/udehkk8qh60hb/FC4" target="_blank" class="btn directo">Descargar directo</a>
+          <div class="comentarios">
+            <h4>Comentarios</h4>
+            <div class="lista-comentarios" id="comentarios-juego10"></div>
+            <form onsubmit="agregarComentario(event, 'juego10')">
+              <input type="text" placeholder="Escribe tu comentario..." required>
+              <button type="submit">Enviar</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <!-- 🎮 Juego 11 -->
+      <div class="juego">
+        <div class="etiqueta nuevo">Nuevo</div>
+        <img src="https://uvejuegos.com/img/caratulas/57032/Cuphead.jpg" alt="Cuphead PC" onclick="mostrarDetalles('juego11')">
+        <h3>Cuphead PC</h3>
+        <div class="detalles-juego" id="juego11">
+          <a href="https://cuty.io/BxnM" target="_blank" class="btn publicidad">Descargar (con publicidad)</a>
+          <a href="https://www.mediafire.com/file/n023i97wiob8jih" target="_blank" class="btn directo">Descargar directo</a>
+          <div class="comentarios">
+            <h4>Comentarios</h4>
+            <div class="lista-comentarios" id="comentarios-juego11"></div>
+            <form onsubmit="agregarComentario(event, 'juego11')">
+              <input type="text" placeholder="Escribe tu comentario..." required>
+              <button type="submit">Enviar</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <!-- 🎮 Juego 12 -->
+      <div class="juego">
+        <div class="etiqueta nuevo">Nuevo</div>
+        <img src="https://upload.wikimedia.org/wikipedia/en/e/e1/Spider-Man_PS4_cover.jpg" alt="Marvel's Spider-Man Remastered TorrenT" onclick="mostrarDetalles('juego12')">
+        <h3>Marvel's Spider-Man Remastered TorrenT</h3>
+        <div class="detalles-juego" id="juego12">
+          <a href="https://cuty.io/44ozd" target="_blank" class="btn publicidad">Descargar (con publicidad)</a>
+          <a href="https://gofile.io/d/L7e7qS" target="_blank" class="btn directo">Descargar directo</a>
+          <div class="comentarios">
+            <h4>Comentarios</h4>
+            <div class="lista-comentarios" id="comentarios-juego12"></div>
+            <form onsubmit="agregarComentario(event, 'juego12')">
+              <input type="text" placeholder="Escribe tu comentario..." required>
+              <button type="submit">Enviar</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <!-- 🎮 Juego 13 -->
+      <div class="juego">
+        <div class="etiqueta nuevo">Nuevo</div>
+        <img src="https://upload.wikimedia.org/wikipedia/en/5/57/Doom_cover_art.jpg" alt="Doom" onclick="mostrarDetalles('juego13')">
+        <h3>Doom</h3>
+        <div class="detalles-juego" id="juego13">
+          <a href="https://cuty.io/GM5LMLd" target="_blank" class="btn publicidad">Descargar (con publicidad)</a>
+          <a href="https://gofile.io/d/pJ32KF" target="_blank" class="btn directo">Descargar directo</a>
+          <div class="comentarios">
+            <h4>Comentarios</h4>
+            <div class="lista-comentarios" id="comentarios-juego13"></div>
+            <form onsubmit="agregarComentario(event, 'juego13')">
+              <input type="text" placeholder="Escribe tu comentario..." required>
+              <button type="submit">Enviar</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <!-- 🎮 Juego 14 -->
+      <div class="juego">
+        <div class="etiqueta nuevo">Nuevo</div>
+        <img src="https://www.ultimagame.es/resident-evil-5/imagen-i4664-pge.jpg" alt="Residente evil 5 Optimizado" onclick="mostrarDetalles('juego14')">
+        <h3>Residente evil 5 Optimizado</h3>
+        <div class="detalles-juego" id="juego14">
+          <a href="https://cuty.io/hI0Z2" target="_blank" class="btn publicidad">Descargar (con publicidad)</a>
+          <a href="https://gofile.io/d/UjztNE" target="_blank" class="btn directo">Descargar directo</a>
+          <div class="comentarios">
+            <h4>Comentarios</h4>
+            <div class="lista-comentarios" id="comentarios-juego14"></div>
+            <form onsubmit="agregarComentario(event, 'juego14')">
+              <input type="text" placeholder="Escribe tu comentario..." required>
+              <button type="submit">Enviar</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <!-- 🎮 Juego 15 -->
+      <div class="juego">
+        <div class="etiqueta nuevo">Nuevo</div>
+        <img src="https://m.media-amazon.com/images/I/91LUZy1GafL._SL1500_.jpg" alt="Spore Complete Collection PC" onclick="mostrarDetalles('juego15')">
+        <h3>Spore Complete Collection PC</h3>
+        <div class="detalles-juego" id="juego15">
+          <a href="https://cuty.io/MJlZYRxEr1E" target="_blank" class="btn publicidad">Descargar (con publicidad)</a>
+          <a href="https://gofile.io/d/8ifZvK" target="_blank" class="btn directo">Descargar directo</a>
+          <div class="comentarios">
+            <h4>Comentarios</h4>
+            <div class="lista-comentarios" id="comentarios-juego15"></div>
+            <form onsubmit="agregarComentario(event, 'juego15')">
+              <input type="text" placeholder="Escribe tu comentario..." required>
+              <button type="submit">Enviar</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <!-- 🎮 Juego 16 -->
+      <div class="juego">
+        <div class="etiqueta nuevo">Nuevo</div>
+        <img src="https://media.vandal.net/t200/23246/resident-evil-4-ultimate-hd-edition-20143116718_1.jpg" alt="Resident evil 4 Ultimate HD Edition PC (Torrent)" onclick="mostrarDetalles('juego16')">
+        <h3>Resident evil 4 Ultimate HD Edition PC (Torrent)</h3>
+        <div class="detalles-juego" id="juego16">
+          <a href="https://cuty.io/McNQU5x" target="_blank" class="btn publicidad">Descargar (con publicidad)</a>
+          <a href="https://gofile.io/d/FpFFvh" target="_blank" class="btn directo">Descargar directo</a>
+          <div class="comentarios">
+            <h4>Comentarios</h4>
+            <div class="lista-comentarios" id="comentarios-juego16"></div>
+            <form onsubmit="agregarComentario(event, 'juego16')">
+              <input type="text" placeholder="Escribe tu comentario..." required>
+              <button type="submit">Enviar</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <!-- 🎮 Juego 17 -->
+      <div class="juego">
+        <div class="etiqueta nuevo">Nuevo</div>
+        <img src="https://cdn.cdkeys.com/496x700/media/catalog/product/u/l/ultrakill-pc-steam-cdkeys.jpg" alt="ULTRAKILL PARA PC v15C" onclick="mostrarDetalles('juego17')">
+        <h3>ULTRAKILL PARA PC v15C</h3>
+        <div class="detalles-juego" id="juego17">
+          <a href="https://cuty.io/RuMEGYqqp" target="_blank" class="btn publicidad">Descargar (con publicidad)</a>
+          <a href="https://www.mediafire.com/file/1wrw2cu37dgdh18" target="_blank" class="btn directo">Descargar directo</a>
+          <div class="comentarios">
+            <h4>Comentarios</h4>
+            <div class="lista-comentarios" id="comentarios-juego17"></div>
+            <form onsubmit="agregarComentario(event, 'juego17')">
+              <input type="text" placeholder="Escribe tu comentario..." required>
+              <button type="submit">Enviar</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <!-- 🎮 Juego 18 -->
+      <div class="juego">
+        <div class="etiqueta nuevo">Nuevo</div>
+        <img src="https://files.gamesfull.app/uploads/image/2020/06/resident-evil-2-2019-deluxe-edition-9167-poster.jpg" alt="Resident Evil 2 2019 Deluxe Edition (Torrent)" onclick="mostrarDetalles('juego18')">
+        <h3>Resident Evil 2 2019 Deluxe Edition (Torrent)</h3>
+        <div class="detalles-juego" id="juego18">
+          <a href="https://cuty.io/JQoMVR1i4" target="_blank" class="btn publicidad">Descargar (con publicidad)</a>
+          <a href="https://gofile.io/d/fO30B2" target="_blank" class="btn directo">Descargar directo</a>
+          <div class="comentarios">
+            <h4>Comentarios</h4>
+            <div class="lista-comentarios" id="comentarios-juego18"></div>
+            <form onsubmit="agregarComentario(event, 'juego18')">
+              <input type="text" placeholder="Escribe tu comentario..." required>
+              <button type="submit">Enviar</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <!-- 🎮 Juego 19 -->
+      <div class="juego">
+        <div class="etiqueta nuevo">Nuevo</div>
+        <img src="https://media.vandal.net/m/42944/red-dead-redemption-2-2019101812583956_1.jpg" alt="Red Dead Redemption 2 (Torrent)" onclick="mostrarDetalles('juego19')">
+        <h3>Red Dead Redemption 2 (Torrent)</h3>
+        <div class="detalles-juego" id="juego19">
+          <a href="https://cuty.io/ZQmklzoFyS" target="_blank" class="btn publicidad">Descargar (con publicidad)</a>
+          <a href="https://gofile.io/d/77yfKF" target="_blank" class="btn directo">Descargar directo</a>
+          <div class="comentarios">
+            <h4>Comentarios</h4>
+            <div class="lista-comentarios" id="comentarios-juego19"></div>
+            <form onsubmit="agregarComentario(event, 'juego19')">
+              <input type="text" placeholder="Escribe tu comentario..." required>
+              <button type="submit">Enviar</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <!-- 🎮 Juego 20 -->
+      <div class="juego">
+        <div class="etiqueta nuevo">Nuevo</div>
+        <img src="https://i.pinimg.com/1200x/41/d3/75/41d375a92b1df8101196909f60d7ab3b.jpg" alt="HouseFlipper (Video Game 2018)" onclick="mostrarDetalles('juego20')">
+        <h3>HouseFlipper (Video Game 2018)</h3>
+        <div class="detalles-juego" id="juego20">
+          <a href="https://cuty.io/dPQFCPTUoF" target="_blank" class="btn publicidad">Descargar (con publicidad)</a>
+          <a href="https://www.mediafire.com/file/cjala6ll9zjdg4h/House.Flipper.v1.22131.rar/file" target="_blank" class="btn directo">Descargar directo</a>
+          <div class="comentarios">
+            <h4>Comentarios</h4>
+            <div class="lista-comentarios" id="comentarios-juego20"></div>
+            <form onsubmit="agregarComentario(event, 'juego20')">
+              <input type="text" placeholder="Escribe tu comentario..." required>
+              <button type="submit">Enviar</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <!-- 🎮 Juego 21 -->
+      <div class="juego">
+        <div class="etiqueta nuevo">Nuevo</div>
+        <img src="https://i.pinimg.com/736x/cd/e2/86/cde286ed1734e4b09d07675a2f8b58d4.jpg" alt="Dead Space" onclick="mostrarDetalles('juego21')">
+        <h3>Dead Space</h3>
+        <div class="detalles-juego" id="juego21">
+          <a href="https://cuty.io/gSoQwEgzoG4" target="_blank" class="btn publicidad">Descargar (con publicidad)</a>
+          <a href="https://pixeldrain.com/u/d9dxS75S" target="_blank" class="btn directo">Descargar directo</a>
+          <div class="comentarios">
+            <h4>Comentarios</h4>
+            <div class="lista-comentarios" id="comentarios-juego21"></div>
+            <form onsubmit="agregarComentario(event, 'juego21')">
+              <input type="text" placeholder="Escribe tu comentario..." required>
+              <button type="submit">Enviar</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <!-- 🎮 Juego 22 -->
+      <div class="juego">
+        <div class="etiqueta nuevo">Nuevo</div>
+        <img src="https://i.pinimg.com/736x/d1/8f/62/d18f62a446033026053339394944c1fb.jpg" alt="Call of Duty Black Ops 2 [PC] [Update 3]" onclick="mostrarDetalles('juego22')">
+        <h3>Call of Duty Black Ops 2 [PC] [Update 3]</h3>
+        <div class="detalles-juego" id="juego22">
+          <a href="https://cuty.io/nKAvVZC" target="_blank" class="btn publicidad">Descargar (con publicidad)</a>
+          <a href="https://gofile.io/d/YzMjez" target="_blank" class="btn directo">Descargar directo</a>
+          <div class="comentarios">
+            <h4>Comentarios</h4>
+            <div class="lista-comentarios" id="comentarios-juego22"></div>
+            <form onsubmit="agregarComentario(event, 'juego22')">
+              <input type="text" placeholder="Escribe tu comentario..." required>
+              <button type="submit">Enviar</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <!-- 🎮 Juego 23 -->
+      <div class="juego">
+        <div class="etiqueta nuevo">Nuevo</div>
+        <img src="https://i.pinimg.com/736x/32/5f/f3/325ff3c09c70187397c1d4fa2c24b4ea.jpg" alt="Warcraft III - Reign of Chaos" onclick="mostrarDetalles('juego23')">
+        <h3>Warcraft III - Reign of Chaos</h3>
+        <div class="detalles-juego" id="juego23">
+          <a href="https://cuty.io/RngQYVIMj" target="_blank" class="btn publicidad">Descargar (con publicidad)</a>
+          <a href="https://gofile.io/d/X6f6rc" target="_blank" class="btn directo">Descargar directo</a>
+          <div class="comentarios">
+            <h4>Comentarios</h4>
+            <div class="lista-comentarios" id="comentarios-juego23"></div>
+            <form onsubmit="agregarComentario(event, 'juego23')">
+              <input type="text" placeholder="Escribe tu comentario..." required>
+              <button type="submit">Enviar</button>
+            </form>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
