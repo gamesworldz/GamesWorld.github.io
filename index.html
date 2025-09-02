@@ -12,6 +12,23 @@
     gtag('js', new Date());
     gtag('config', 'G-BPBPQ9W7YR');
   </script>
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-database-compat.js"></script>
+  <script>
+    // Configuración de Firebase (REEMPLAZA CON TUS DATOS)
+    const firebaseConfig = {
+      apiKey: "TU_API_KEY",
+      authDomain: "TU_PROYECTO.firebaseapp.com",
+      databaseURL: "https://TU_PROYECTO.firebaseio.com",
+      projectId: "TU_PROYECTO",
+      storageBucket: "TU_PROYECTO.appspot.com",
+      messagingSenderId: "TU_SENDER_ID",
+      appId: "TU_APP_ID"
+    };
+    firebase.initializeApp(firebaseConfig);
+    const database = firebase.database();
+  </script>
 </head>
 <body>
   <header>
@@ -443,12 +460,27 @@
     </div>
   </section>
 
+  <!-- Botón flotante para abrir el chat -->
+  <button onclick="toggleChat()" class="chat-button">💬 Chat en Vivo</button>
+
+  <!-- Ventana del chat -->
+  <div class="chat-container">
+    <div class="chat-header">
+      <span>🎮 Chat en Vivo</span>
+      <button onclick="toggleChat()">✕</button>
+    </div>
+    <div class="chat-messages" id="chatMessages"></div>
+    <form class="chat-form" onsubmit="enviarMensaje(event)">
+      <input type="text" id="mensajeInput" placeholder="Escribe tu mensaje..." required>
+      <button type="submit">Enviar</button>
+    </form>
+  </div>
+
   <script>
     function mostrarDetalles(id) {
       const detalles = document.getElementById(id);
       detalles.style.display = detalles.style.display === 'block' ? 'none' : 'block';
     }
-
     function agregarComentario(event, juegoId) {
       event.preventDefault();
       const input = event.target.querySelector('input');
@@ -462,22 +494,68 @@
         input.value = '';
       }
     }
-
     // Evitar que el clic en el formulario cierre el menú
     document.querySelectorAll('.detalles-juego').forEach(detalle => {
       detalle.addEventListener('click', (e) => {
         e.stopPropagation();
       });
     });
+
+    // Mostrar/ocultar chat
+    function toggleChat() {
+      const chat = document.querySelector('.chat-container');
+      chat.style.display = chat.style.display === 'block' ? 'none' : 'block';
+    }
+
+    // Enviar mensaje
+    function enviarMensaje(e) {
+      e.preventDefault();
+      const input = document.getElementById('mensajeInput');
+      const mensaje = input.value.trim();
+      if (mensaje) {
+        const mensajesRef = database.ref('mensajes');
+        mensajesRef.push({
+          texto: mensaje,
+          fecha: Date.now()
+        });
+        input.value = '';
+      }
+    }
+
+    // Cargar mensajes
+    function cargarMensajes() {
+      const mensajesRef = database.ref('mensajes');
+      const chatMessages = document.getElementById('chatMessages');
+
+      mensajesRef.on('child_added', (snapshot) => {
+        const mensaje = snapshot.val();
+        const mensajeElement = document.createElement('div');
+        mensajeElement.className = 'mensaje';
+        mensajeElement.innerHTML = `<p><strong>Usuario:</strong> ${mensaje.texto}</p>`;
+        chatMessages.appendChild(mensajeElement);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+      });
+
+      // Borrar mensajes después de 24 horas
+      setInterval(() => {
+        const ahora = Date.now();
+        mensajesRef.once('value', (snapshot) => {
+          snapshot.forEach((childSnapshot) => {
+            const mensaje = childSnapshot.val();
+            if (ahora - mensaje.fecha > 24 * 60 * 60 * 1000) {
+              childSnapshot.ref.remove();
+            }
+          });
+        });
+      }, 60 * 60 * 1000); // Revisar cada hora
+    }
+
+    // Iniciar chat al cargar la página
+    window.onload = () => {
+      cargarMensajes();
+    };
   </script>
 </body>
 </html>
-
-
-
-
-
-
-
 
 
