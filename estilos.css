@@ -1,528 +1,508 @@
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;500;700&display=swap');
-* {
-    box-sizing: border-box;
-}
-body {
-    margin: 0;
-    font-family: 'Rajdhani', 'Segoe UI', sans-serif;
-    background-image: url('https://i.pinimg.com/736x/56/a8/39/56a8398cc2fe64c04a1941b1bf461172.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    color: #ffffff;
-    overflow-x: hidden;
-    position: relative;
-}
-body::after {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.4);
-    z-index: -2;
-}
-body::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: radial-gradient(2px 2px at 20px 30px, #00ff88, transparent),
-                      radial-gradient(2px 2px at 40px 70px, #ff5555, transparent),
-                      radial-gradient(1px 1px at 90px 40px, #00ffff, transparent),
-                      radial-gradient(1px 1px at 130px 80px, #ffff00, transparent);
-    background-size: 150px 150px;
-    animation: particleFloat 20s linear infinite;
-    opacity: 0.1;
-    z-index: -1;
-}
-@keyframes gradientShift {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
-@keyframes particleFloat {
-    0% { transform: translate(0, 0); }
-    100% { transform: translate(-150px, -150px); }
-}
-header {
-    background: linear-gradient(90deg, rgba(0,0,0,0.9) 0%, rgba(17,17,17,0.95) 50%, rgba(0,0,0,0.9) 100%);
-    backdrop-filter: blur(10px);
-    border-bottom: 3px solid transparent;
-    border-image: linear-gradient(90deg, #00ff88, #00ffff, #ff5555, #00ff88) 1;
-    display: flex;
-    justify-content: space-between;
-    padding: 15px 20px;
-    align-items: center;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    box-shadow: 0 5px 30px rgba(0, 255, 136, 0.2);
-    transition: all 0.3s ease;
-}
-header:hover {
-    box-shadow: 0 8px 40px rgba(0, 255, 136, 0.4);
-    transform: translateY(-2px);
-}
-.logo {
-    font-family: 'Orbitron', monospace;
-    font-size: 28px;
-    color: #00ff88;
-    font-weight: 900;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    text-shadow: 0 0 10px #00ff88, 0 0 20px #00ff88, 0 0 40px #00ff88;
-    animation: logoGlow 2s ease-in-out infinite alternate;
-    position: relative;
-}
-.logo::after {
-    content: '';
-    position: absolute;
-    top: -5px;
-    left: -10px;
-    right: -10px;
-    bottom: -5px;
-    background: linear-gradient(45deg, transparent, rgba(0, 255, 136, 0.1), transparent);
-    border-radius: 10px;
-    z-index: -1;
-    animation: logoBackglow 3s ease infinite;
-}
-@keyframes logoGlow {
-    from { text-shadow: 0 0 10px #00ff88, 0 0 20px #00ff88, 0 0 40px #00ff88; }
-    to { text-shadow: 0 0 15px #00ff88, 0 0 30px #00ff88, 0 0 60px #00ff88; }
-}
-@keyframes logoBackglow {
-    0%, 100% { opacity: 0.3; }
-    50% { opacity: 0.8; }
-}
-nav {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-nav a {
-    color: #ffffff;
-    text-decoration: none;
-    font-weight: 700;
-    font-size: 16px;
-    padding: 10px 20px;
-    border-radius: 25px;
-    position: relative;
-    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    overflow: hidden;
-}
-nav a::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(0, 255, 136, 0.4), transparent);
-    transition: left 0.5s;
-}
-nav a:hover::before {
-    left: 100%;
-}
-nav a:hover {
-    color: #00ff88;
-    box-shadow: 0 0 20px rgba(0, 255, 136, 0.5), inset 0 0 20px rgba(0, 255, 136, 0.1);
-    border: 2px solid rgba(0, 255, 136, 0.3);
-    transform: translateY(-3px) scale(1.05);
-}
-.seccion-juegos {
-    padding: 40px 30px;
-    position: relative;
-}
-.seccion-juegos h2 {
-    margin-bottom: 30px;
-    color: #00ff88;
-    font-family: 'Orbitron', monospace;
-    font-size: 2.5rem;
-    font-weight: 700;
-    text-align: center;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    position: relative;
-    background: linear-gradient(45deg, #00ff88, #00ffff, #ff5555);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    animation: titlePulse 2s ease-in-out infinite;
-}
-.seccion-juegos h2::after {
-    content: '';
-    position: absolute;
-    bottom: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100px;
-    height: 4px;
-    background: linear-gradient(90deg, #00ff88, #00ffff, #ff5555);
-    border-radius: 2px;
-    animation: lineGlow 2s ease-in-out infinite;
-}
-@keyframes titlePulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.05); }
-}
-@keyframes lineGlow {
-    0%, 100% { box-shadow: 0 0 10px rgba(0, 255, 136, 0.5); }
-    50% { box-shadow: 0 0 20px rgba(0, 255, 136, 1); }
-}
-.contenedor-juegos {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 30px;
-    max-width: 1400px;
-    margin: 0 auto;
-}
-.juego {
-    background: linear-gradient(145deg, rgba(26, 26, 46, 0.9), rgba(22, 33, 62, 0.9));
-    backdrop-filter: blur(10px);
-    border-radius: 20px;
-    padding: 20px;
-    position: relative;
-    text-align: center;
-    border: 2px solid transparent;
-    background-clip: padding-box;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    overflow: hidden;
-    cursor: pointer;
-}
-.juego::before {
-    content: '';
-    position: absolute;
-    top: -2px;
-    left: -2px;
-    right: -2px;
-    bottom: -2px;
-    background: linear-gradient(45deg, #00ff88, #00ffff, #ff5555, #ffff00);
-    background-size: 400% 400%;
-    border-radius: 22px;
-    z-index: -1;
-    opacity: 0;
-    animation: borderRotate 4s linear infinite;
-    transition: opacity 0.3s ease;
-}
-.juego:hover::before {
-    opacity: 1;
-}
-@keyframes borderRotate {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
-.juego:hover {
-    transform: translateY(-15px) scale(1.05);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 40px rgba(0, 255, 136, 0.3);
-}
-.juego img {
-    width: 100%;
-    border-radius: 12px;
-    height: 280px;
-    object-fit: cover;
-    transition: all 0.4s ease;
-    filter: brightness(0.9) contrast(1.1);
-}
-.juego:hover img {
-    filter: brightness(1.1) contrast(1.2) saturate(1.3);
-    transform: scale(1.05);
-}
-.juego h3 {
-    margin: 15px 0 10px 0;
-    font-size: 18px;
-    color: #ffffff;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-}
-.detalles-juego {
-    display: none;
-    margin-top: 15px;
-    padding: 15px;
-    background: rgba(0, 0, 0, 0.7);
-    border-radius: 10px;
-    backdrop-filter: blur(5px);
-}
-.detalles-juego .btn {
-    display: block;
-    width: 100%;
-    max-width: 180px;
-    margin: 8px auto;
-    padding: 12px 16px;
-    border-radius: 25px;
-    text-decoration: none;
-    font-weight: 700;
-    text-align: center;
-    font-size: 14px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    position: relative;
-    overflow: hidden;
-    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    border: 2px solid transparent;
-}
-.detalles-juego .btn::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 0;
-    height: 0;
-    background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%);
-    transition: all 0.3s ease;
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-}
-.detalles-juego .btn:hover::before {
-    width: 300px;
-    height: 300px;
-}
-.btn.publicidad {
-    background: linear-gradient(135deg, #00ff88, #00dd77);
-    color: #000;
-    box-shadow: 0 4px 15px rgba(0, 255, 136, 0.4);
-}
-.btn.publicidad:hover {
-    background: linear-gradient(135deg, #00dd77, #00ff88);
-    transform: translateY(-3px) scale(1.05);
-    box-shadow: 0 8px 25px rgba(0, 255, 136, 0.6);
-}
-.btn.directo {
-    background: linear-gradient(135deg, #ff5555, #ff3333);
-    color: #fff;
-    box-shadow: 0 4px 15px rgba(255, 85, 85, 0.4);
-}
-.btn.directo:hover {
-    background: linear-gradient(135deg, #ff3333, #ff5555);
-    transform: translateY(-3px) scale(1.05);
-    box-shadow: 0 8px 25px rgba(255, 85, 85, 0.6);
-}
-.etiqueta {
-    position: absolute;
-    top: 15px;
-    left: -8px;
-    font-size: 12px;
-    font-weight: 900;
-    padding: 6px 12px;
-    border-radius: 0 15px 15px 0;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    z-index: 10;
-    animation: tagPulse 2s ease-in-out infinite;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-}
-@keyframes tagPulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.1); }
-}
-.etiqueta.actualizado {
-    background: linear-gradient(135deg, gold, #ffcc00);
-    color: #000;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
-}
-.etiqueta.nuevo {
-    background: linear-gradient(135deg, #00ff88, #00dd77);
-    color: #000;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
-}
-.comentarios {
-    margin-top: 15px;
-    padding: 10px;
-    background: rgba(0, 0, 0, 0.5);
-    border-radius: 10px;
-}
-.comentarios h4 {
-    margin: 0 0 10px 0;
-    color: #00ff88;
-    font-size: 16px;
-}
-.comentarios form {
-    display: flex;
-    gap: 10px;
-    margin-top: 10px;
-}
-.comentarios input {
-    flex: 1;
-    padding: 8px;
-    border: none;
-    border-radius: 5px;
-    background: rgba(255, 255, 255, 0.1);
-    color: #fff;
-    border: 1px solid rgba(0, 255, 136, 0.3);
-}
-.comentarios input:focus {
-    outline: none;
-    background: rgba(255, 255, 255, 0.2);
-}
-.comentarios button {
-    padding: 8px 15px;
-    background: #00ff88;
-    color: #000;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: 700;
-    transition: all 0.3s;
-}
-.comentarios button:hover {
-    background: #00dd77;
-}
-.lista-comentarios {
-    max-height: 200px;
-    overflow-y: auto;
-    margin-bottom: 10px;
-}
-.comentario {
-    padding: 8px;
-    margin-bottom: 8px;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 5px;
-    border-left: 3px solid #00ff88;
-}
-@media (max-width: 768px) {
-    .contenedor-juegos {
-        grid-template-columns: 1fr;
-        gap: 20px;
-        padding: 0 15px;
-    }
-    .juego {
-        max-width: 400px;
-        margin: 0 auto;
-    }
-    .seccion-juegos h2 {
-        font-size: 2rem;
-    }
-    .logo {
-        font-size: 24px;
-    }
-    nav a {
-        padding: 8px 15px;
-        font-size: 14px;
-    }
-    header {
-        padding: 10px 15px;
-    }
-}
-@media (max-width: 480px) {
-    .seccion-juegos {
-        padding: 20px 15px;
-    }
-    .seccion-juegos h2 {
-        font-size: 1.8rem;
-        letter-spacing: 2px;
-    }
-    nav {
-        flex-direction: column;
-        gap: 5px;
-    }
-    nav a {
-        padding: 6px 12px;
-        font-size: 12px;
-    }
-}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gaming Site - Diseño Dinámico</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;500;700&display=swap');
 
-/* CSS del chat */
-.chat-float-button {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  background: #00ff88;
-  color: #000;
-  border: none;
-  cursor: pointer;
-  z-index: 1000;
-  font-size: 24px;
-  box-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+        * {
+            box-sizing: border-box;
+        }
 
-.chat-container {
-  position: fixed;
-  bottom: 90px;
-  right: 20px;
-  width: 300px;
-  max-height: 400px;
-  background: rgba(0, 0, 0, 0.8);
-  border-radius: 10px;
-  backdrop-filter: blur(10px);
-  border: 1px solid #00ff88;
-  z-index: 1000;
-  display: none;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
-}
+        body {
+            margin: 0;
+            font-family: 'Rajdhani', 'Segoe UI', sans-serif;
+            background-image: url('https://i.pinimg.com/736x/56/a8/39/56a8398cc2fe64c04a1941b1bf461172.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            color: #ffffff;
+            overflow-x: hidden;
+            position: relative;
+        }
 
-.chat-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px;
-  background: #00ff88;
-  color: #000;
-  font-weight: bold;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-}
+        /* Overlay oscuro para mantener legibilidad */
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: -2;
+        }
 
-.chat-header button {
-  background: none;
-  border: none;
-  font-size: 18px;
-  cursor: pointer;
-}
+        /* Partículas de fondo */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(2px 2px at 20px 30px, #00ff88, transparent),
+                              radial-gradient(2px 2px at 40px 70px, #ff5555, transparent),
+                              radial-gradient(1px 1px at 90px 40px, #00ffff, transparent),
+                              radial-gradient(1px 1px at 130px 80px, #ffff00, transparent);
+            background-size: 150px 150px;
+            animation: particleFloat 20s linear infinite;
+            opacity: 0.1;
+            z-index: -1;
+        }
 
-.chat-messages {
-  height: 250px;
-  overflow-y: auto;
-  padding: 10px;
-  color: #fff;
-  background: rgba(0, 0, 0, 0.7);
-}
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
 
-.chat-form {
-  display: flex;
-  padding: 10px;
-  background: #111;
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
-}
+        @keyframes particleFloat {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(-150px, -150px); }
+        }
 
-.chat-form input {
-  flex: 1;
-  padding: 8px;
-  border: none;
-  border-radius: 5px;
-  background: rgba(255, 255, 255, 0.1);
-  color: #fff;
-}
+        header {
+            background: linear-gradient(90deg, rgba(0,0,0,0.9) 0%, rgba(17,17,17,0.95) 50%, rgba(0,0,0,0.9) 100%);
+            backdrop-filter: blur(10px);
+            border-bottom: 3px solid transparent;
+            border-image: linear-gradient(90deg, #00ff88, #00ffff, #ff5555, #00ff88) 1;
+            display: flex;
+            justify-content: space-between;
+            padding: 15px 20px;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 5px 30px rgba(0, 255, 136, 0.2);
+            transition: all 0.3s ease;
+        }
 
-.chat-form button {
-  padding: 8px 15px;
-  margin-left: 5px;
-  background: #00ff88;
-  color: #000;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
+        header:hover {
+            box-shadow: 0 8px 40px rgba(0, 255, 136, 0.4);
+            transform: translateY(-2px);
+        }
 
-.mensaje {
-  margin-bottom: 8px;
-  padding: 8px;
-  background: rgba(0, 255, 136, 0.2);
-  border-radius: 5px;
-  word-wrap: break-word;
-}
+        .logo {
+            font-family: 'Orbitron', monospace;
+            font-size: 28px;
+            color: #00ff88;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 0 0 10px #00ff88, 0 0 20px #00ff88, 0 0 40px #00ff88;
+            animation: logoGlow 2s ease-in-out infinite alternate;
+            position: relative;
+        }
+
+        .logo::after {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: -10px;
+            right: -10px;
+            bottom: -5px;
+            background: linear-gradient(45deg, transparent, rgba(0, 255, 136, 0.1), transparent);
+            border-radius: 10px;
+            z-index: -1;
+            animation: logoBackglow 3s ease infinite;
+        }
+
+        @keyframes logoGlow {
+            from { text-shadow: 0 0 10px #00ff88, 0 0 20px #00ff88, 0 0 40px #00ff88; }
+            to { text-shadow: 0 0 15px #00ff88, 0 0 30px #00ff88, 0 0 60px #00ff88; }
+        }
+
+        @keyframes logoBackglow {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.8; }
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 16px;
+            padding: 10px 20px;
+            border-radius: 25px;
+            position: relative;
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            overflow: hidden;
+        }
+
+        nav a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 255, 136, 0.4), transparent);
+            transition: left 0.5s;
+        }
+
+        nav a:hover::before {
+            left: 100%;
+        }
+
+        nav a:hover {
+            color: #00ff88;
+            box-shadow: 0 0 20px rgba(0, 255, 136, 0.5), inset 0 0 20px rgba(0, 255, 136, 0.1);
+            border: 2px solid rgba(0, 255, 136, 0.3);
+            transform: translateY(-3px) scale(1.05);
+        }
+
+        .seccion-juegos {
+            padding: 40px 30px;
+            position: relative;
+        }
+
+        .seccion-juegos h2 {
+            margin-bottom: 30px;
+            color: #00ff88;
+            font-family: 'Orbitron', monospace;
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            position: relative;
+            background: linear-gradient(45deg, #00ff88, #00ffff, #ff5555);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: titlePulse 2s ease-in-out infinite;
+        }
+
+        .seccion-juegos h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, #00ff88, #00ffff, #ff5555);
+            border-radius: 2px;
+            animation: lineGlow 2s ease-in-out infinite;
+        }
+
+        @keyframes titlePulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        @keyframes lineGlow {
+            0%, 100% { box-shadow: 0 0 10px rgba(0, 255, 136, 0.5); }
+            50% { box-shadow: 0 0 20px rgba(0, 255, 136, 1); }
+        }
+
+        .contenedor-juegos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 30px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .juego {
+            background: linear-gradient(145deg, rgba(26, 26, 46, 0.9), rgba(22, 33, 62, 0.9));
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 20px;
+            position: relative;
+            text-align: center;
+            border: 2px solid transparent;
+            background-clip: padding-box;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .juego::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #00ff88, #00ffff, #ff5555, #ffff00);
+            background-size: 400% 400%;
+            border-radius: 22px;
+            z-index: -1;
+            opacity: 0;
+            animation: borderRotate 4s linear infinite;
+            transition: opacity 0.3s ease;
+        }
+
+        .juego:hover::before {
+            opacity: 1;
+        }
+
+        @keyframes borderRotate {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .juego:hover {
+            transform: translateY(-15px) scale(1.05);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 40px rgba(0, 255, 136, 0.3);
+        }
+
+        .juego img {
+            width: 100%;
+            border-radius: 12px;
+            height: 280px;
+            object-fit: cover;
+            transition: all 0.4s ease;
+            filter: brightness(0.9) contrast(1.1);
+        }
+
+        .juego:hover img {
+            filter: brightness(1.1) contrast(1.2) saturate(1.3);
+            transform: scale(1.05);
+        }
+
+        .juego h3 {
+            margin: 15px 0 10px 0;
+            font-size: 18px;
+            color: #ffffff;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        /* 🔹 estilo base de los botones */
+        .btn {
+            display: block;
+            width: 100%;
+            max-width: 180px;
+            margin: 8px auto;
+            padding: 12px 16px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 700;
+            text-align: center;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            border: 2px solid transparent;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%);
+            transition: all 0.3s ease;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .btn:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        /* 🔹 botón de publicidad */
+        .btn.publicidad {
+            background: linear-gradient(135deg, #00ff88, #00dd77);
+            color: #000;
+            box-shadow: 0 4px 15px rgba(0, 255, 136, 0.4);
+        }
+
+        .btn.publicidad:hover {
+            background: linear-gradient(135deg, #00dd77, #00ff88);
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 8px 25px rgba(0, 255, 136, 0.6);
+        }
+
+        /* 🔹 botón directo */
+        .btn.directo {
+            background: linear-gradient(135deg, #ff5555, #ff3333);
+            color: #fff;
+            box-shadow: 0 4px 15px rgba(255, 85, 85, 0.4);
+        }
+
+        .btn.directo:hover {
+            background: linear-gradient(135deg, #ff3333, #ff5555);
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 8px 25px rgba(255, 85, 85, 0.6);
+        }
+
+        .etiqueta {
+            position: absolute;
+            top: 15px;
+            left: -8px;
+            font-size: 12px;
+            font-weight: 900;
+            padding: 6px 12px;
+            border-radius: 0 15px 15px 0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            z-index: 10;
+            animation: tagPulse 2s ease-in-out infinite;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        @keyframes tagPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .etiqueta.actualizado {
+            background: linear-gradient(135deg, gold, #ffcc00);
+            color: #000;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        .etiqueta.nuevo {
+            background: linear-gradient(135deg, #00ff88, #00dd77);
+            color: #000;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Efectos de resplandor adicionales */
+        .juego:nth-child(odd):hover {
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 40px rgba(0, 255, 255, 0.3);
+        }
+
+        .juego:nth-child(even):hover {
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 40px rgba(255, 85, 85, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .contenedor-juegos {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                padding: 0 15px;
+            }
+
+            .juego {
+                max-width: 400px;
+                margin: 0 auto;
+            }
+
+            .seccion-juegos h2 {
+                font-size: 2rem;
+            }
+
+            .logo {
+                font-size: 24px;
+            }
+
+            nav a {
+                padding: 8px 15px;
+                font-size: 14px;
+            }
+
+            header {
+                padding: 10px 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .seccion-juegos {
+                padding: 20px 15px;
+            }
+
+            .seccion-juegos h2 {
+                font-size: 1.8rem;
+                letter-spacing: 2px;
+            }
+
+            nav {
+                flex-direction: column;
+                gap: 5px;
+            }
+
+            nav a {
+                padding: 6px 12px;
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">GamerZone</div>
+        <nav>
+            <a href="#">Inicio</a>
+            <a href="#">Juegos</a>
+            <a href="#">Novedades</a>
+            <a href="#">Contacto</a>
+        </nav>
+    </header>
+
+    <div class="seccion-juegos">
+        <h2>Juegos Destacados</h2>
+        <div class="contenedor-juegos">
+            <!-- Ejemplo de juego con etiqueta "nuevo" -->
+            <div class="juego">
+                <div class="etiqueta nuevo">Nuevo</div>
+                <img src="https://via.placeholder.com/200x280/1a1a2e/00ff88?text=GAME+1" alt="Juego 1">
+                <h3>Cyber Adventure</h3>
+                <a href="#" class="btn publicidad">Con Publicidad</a>
+                <a href="#" class="btn directo">Jugar Directo</a>
+            </div>
+
+            <!-- Ejemplo de juego con etiqueta "actualizado" -->
+            <div class="juego">
+                <div class="etiqueta actualizado">Actualizado</div>
+                <img src="https://via.placeholder.com/200x280/1a1a2e/ff5555?text=GAME+2" alt="Juego 2">
+                <h3>Neon Racing</h3>
+                <a href="#" class="btn publicidad">Con Publicidad</a>
+                <a href="#" class="btn directo">Jugar Directo</a>
+            </div>
+
+            <!-- Ejemplo de juego normal -->
+            <div class="juego">
+                <img src="https://via.placeholder.com/200x280/1a1a2e/00ffff?text=GAME+3" alt="Juego 3">
+                <h3>Space Warriors</h3>
+                <a href="#" class="btn publicidad">Con Publicidad</a>
+                <a href="#" class="btn directo">Jugar Directo</a>
+            </div>
+
+            <!-- Más juegos de ejemplo -->
+            <div class="juego">
+                <div class="etiqueta nuevo">Nuevo</div>
+                <img src="https://via.placeholder.com/200x280/1a1a2e/ffff00?text=GAME+4" alt="Juego 4">
+                <h3>Pixel Heroes</h3>
+                <a href="#" class="btn publicidad">Con Publicidad</a>
+                <a href="#" class="btn directo">Jugar Directo</a>
+            </div>
+
+            <div class="juego">
+                <img src="https://via.placeholder.com/200x280/1a1a2e/ff8800?text=GAME+5" alt="Juego 5">
+                <h3>Dark Fantasy</h3>
+                <a href="#" class="btn publicidad">Con Publicidad</a>
+                <a href="#" class="btn directo">Jugar Directo</a>
+            </div>
+
+            <div class="juego">
+                <div class="etiqueta actualizado">Actualizado</div>
+                <img src="https://via.placeholder.com/200x280/1a1a2e/8800ff?text=GAME+6" alt="Juego 6">
+                <h3>Battle Royale</h3>
+                <a href="#" class="btn publicidad">Con Publicidad</a>
+                <a href="#" class="btn directo">Jugar Directo</a>
+            </div>
+        </div>
