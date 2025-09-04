@@ -324,9 +324,101 @@ Hollow Knight: Silksong
 
     </div>
   </section>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>GamesWorld</title>
+  <link rel="stylesheet" href="estilos.css">
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BPBPQ9W7YR"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-BPBPQ9W7YR');
+  </script>
+</head>
+<body>
+
+  <header>
+    <div class="logo">🎮 GamesWorld</div>
+    <nav>
+      <a href="#">Inicio</a>
+      <a href="#">Juegos</a>
+      <a href="#">Colecciones</a>
+      <a href="#">Categorías</a>
+    </nav>
+  </header>
+
+  <section class="seccion-juegos">
+    <h2>Últimos juegos</h2>
+    <div class="contenedor-juegos">
+      <!-- aquí siguen tus tarjetas de juegos 👌 -->
+    </div>
+  </section>
+
+  <!-- 📢 CHAT EN VIVO -->
+  <section id="chat">
+    <h2>Chat en Vivo</h2>
+    <div id="chat-box" style="border:1px solid #ccc; padding:10px; height:300px; overflow-y:auto; background:#111; color:#fff;"></div>
+    <input id="user" type="text" placeholder="Tu nombre" style="width:20%; padding:5px; margin-top:5px;">
+    <input id="message" type="text" placeholder="Escribe un mensaje..." style="width:60%; padding:5px;">
+    <button onclick="sendMessage()" style="padding:5px 10px;">Enviar</button>
+  </section>
+
+  <!-- Firebase SDK -->
+  <script type="module">
+    // Importar Firebase
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+    import { getDatabase, ref, push, onChildAdded } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
+
+    // 👉 PEGA TU CONFIGURACIÓN DE FIREBASE AQUÍ
+    const firebaseConfig = {
+      apiKey: "TU_API_KEY",
+      authDomain: "TU_PROJECT_ID.firebaseapp.com",
+      databaseURL: "https://TU_PROJECT_ID.firebaseio.com",
+      projectId: "TU_PROJECT_ID",
+      storageBucket: "TU_PROJECT_ID.appspot.com",
+      messagingSenderId: "TU_SENDER_ID",
+      appId: "TU_APP_ID"
+    };
+
+    // Inicializar Firebase
+    const app = initializeApp(firebaseConfig);
+    const db = getDatabase(app);
+
+    // Referencia al chat
+    const chatRef = ref(db, "chat");
+
+    // Enviar mensaje
+    window.sendMessage = function() {
+      const user = document.getElementById("user").value || "Anónimo";
+      const message = document.getElementById("message").value;
+      if(message.trim() !== "") {
+        push(chatRef, { user, message });
+        document.getElementById("message").value = "";
+      }
+    };
+
+    // Escuchar nuevos mensajes
+    const chatBox = document.getElementById("chat-box");
+    onChildAdded(chatRef, (snapshot) => {
+      const data = snapshot.val();
+      const p = document.createElement("p");
+      p.innerHTML = `<strong>${data.user}:</strong> ${data.message}`;
+      chatBox.appendChild(p);
+      chatBox.scrollTop = chatBox.scrollHeight;
+    });
+  </script>
 
 </body>
 </html>
+
+</body>
+</html>
+
 
 
 
