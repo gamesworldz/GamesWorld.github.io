@@ -11,7 +11,6 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
     gtag('config', 'G-BPBPQ9W7YR');
   </script>
 </head>
@@ -27,6 +26,10 @@
     </nav>
   </header>
 
+  <section class="seccion-juegos">
+    <h2>Últimos juegos</h2>
+    <div class="contenedor-juegos">
+      <!-- 🎮 Aquí van todas tus tarjetas de juegos -->
   <section class="seccion-juegos">
     <h2>Últimos juegos</h2>
     <div class="contenedor-juegos">
@@ -309,53 +312,7 @@ Hollow Knight: Silksong
       </div>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-    </div>
-  </section>
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <title>GamesWorld</title>
-  <link rel="stylesheet" href="estilos.css">
-
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BPBPQ9W7YR"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-BPBPQ9W7YR');
-  </script>
-</head>
-<body>
-
-  <header>
-    <div class="logo">🎮 GamesWorld</div>
-    <nav>
-      <a href="#">Inicio</a>
-      <a href="#">Juegos</a>
-      <a href="#">Colecciones</a>
-      <a href="#">Categorías</a>
-    </nav>
-  </header>
-
-  <section class="seccion-juegos">
-    <h2>Últimos juegos</h2>
-    <div class="contenedor-juegos">
-      <!-- aquí siguen tus tarjetas de juegos 👌 -->
+      
     </div>
   </section>
 
@@ -369,27 +326,26 @@ Hollow Knight: Silksong
   </section>
 
   <!-- Firebase SDK -->
-  import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
+  <script type="module">
+    // Importar Firebase
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+    import { getDatabase, ref, push, onChildAdded } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
 
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
-  apiKey: "AIzaSyA6gRu4i_Pv1xZbm3RgaWKcFZUGadAvoCY",
-  authDomain: "gamesworld-593ff.firebaseapp.com",
-  databaseURL: "https://gamesworld-593ff-default-rtdb.firebaseio.com",
-  projectId: "gamesworld-593ff",
-  storageBucket: "gamesworld-593ff.firebasestorage.app",
-  messagingSenderId: "58817223081",
-  appId: "1:58817223081:web:b67f089da4a8c0db29ccb8",
-  measurementId: "G-2EJ6P8182Y"
-};
+    // Configuración de tu proyecto Firebase
+    const firebaseConfig = {
+      apiKey: "AIzaSyA6gRu4i_Pv1xZbm3RgaWKcFZUGadAvoCY",
+      authDomain: "gamesworld-593ff.firebaseapp.com",
+      databaseURL: "https://gamesworld-593ff-default-rtdb.firebaseio.com",
+      projectId: "gamesworld-593ff",
+      storageBucket: "gamesworld-593ff.appspot.com",
+      messagingSenderId: "58817223081",
+      appId: "1:58817223081:web:b67f089da4a8c0db29ccb8",
+      measurementId: "G-2EJ6P8182Y"
+    };
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+    // Inicializar Firebase
+    const app = initializeApp(firebaseConfig);
+    const db = getDatabase(app);
 
     // Referencia al chat
     const chatRef = ref(db, "chat");
@@ -417,13 +373,6 @@ const analytics = getAnalytics(app);
 
 </body>
 </html>
-
-</body>
-</html>
-
-
-
-
 
 
 
