@@ -403,10 +403,19 @@ Hollow Knight: Silksong
         if (typeof window.sendMessage === "function") window.sendMessage();
       }
     });
-  </script>
+<script>
+  const chatWidget = document.getElementById("chatWidget");
+  const chatHeader = document.querySelector(".chat-header");
+
+  chatHeader.addEventListener("click", () => {
+    chatWidget.classList.toggle("minimized");
+  });
+</script>
+
 
 </body>
 </html>
+
 
 
 
