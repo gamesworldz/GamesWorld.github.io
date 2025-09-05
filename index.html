@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>GamesWorld</title>
-  <link rel="stylesheet" href="estilos.css">
-
+  <link rel="stylesheet" href="estilos.css" />
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-BPBPQ9W7YR"></script>
   <script>
@@ -26,11 +25,14 @@
     </nav>
   </header>
 
+  <!-- SECCIÓN DE JUEGOS (UNA SOLA VEZ) -->
   <section class="seccion-juegos">
     <h2>Últimos juegos</h2>
     <div class="contenedor-juegos">
-      <!-- 🎮 Aquí van todas tus tarjetas de juegos -->
-  <section class="seccion-juegos">
+      <!-- Ejemplos: agrega el resto de tus tarjetas aquí (una sola vez) -->
+
+
+        <section class="seccion-juegos">
     <h2>Últimos juegos</h2>
     <div class="contenedor-juegos">
 
@@ -311,53 +313,54 @@ Hollow Knight: Silksong
         <a href="https://pixeldrain.com/u/wNMP7oGe" target="_blank" class="btn directo">Descargar directo</a>
       </div>
 
-      <div class="chat-widget minimized" id="chatWidget">
-  <div class="chat-header">
-    💬 Chat en Vivo
-    <span class="chat-toggle">▼</span>
-  </div>
-  
-  <div class="chat-body" id="chatBody">
-    <div class="chat-messages" id="chatMessages">
-      <div class="chat-message">
-        <strong>Sistema:</strong> <span>¡Bienvenido al chat en vivo! 🎮</span>
+      
+      <div class="juego">
+        <div class="etiqueta nuevo">Nuevo</div>
+        <img src="https://i.pinimg.com/originals/f2/58/2c/f2582c76e2cc00e8a8042b69de541320.png" alt="Resident Evil 4 2005">
+        <h3>Resident Evil 4 2005</h3>
+        <a href="#" class="btn publicidad">Descargar (con publicidad)</a>
+        <a href="#" class="btn directo">Descargar directo</a>
+      </div>
+
+      <div class="juego">
+        <div class="etiqueta actualizado">Actualizado</div>
+        <img src="https://www.ultimagame.es/left-4-dead-2/imagen-i4472-pge.jpg" alt="Left 4 Dead 2">
+        <h3>Left 4 Dead 2</h3>
+        <a href="#" class="btn publicidad">Descargar (con publicidad)</a>
+        <a href="#" class="btn directo">Descargar directo</a>
+      </div>
+
+      <!-- ... resto de juegos ... -->
+    </div>
+  </section>
+
+  <!-- CHAT WIDGET (solo uno, bien estructurado) -->
+  <div class="chat-widget minimized" id="chatWidget">
+    <div class="chat-header">
+      <div class="chat-title">💬 Chat en Vivo</div>
+      <span class="chat-toggle">▼</span>
+    </div>
+
+    <div class="chat-body" id="chatBody">
+      <div class="chat-messages" id="chatMessages">
+        <div class="chat-message">
+          <strong>Sistema:</strong> <span>¡Bienvenido al chat en vivo! 🎮</span>
+        </div>
+      </div>
+
+      <div class="chat-input-area">
+        <input type="text" id="user" class="chat-input name-input" placeholder="Tu nombre" maxlength="15">
+        <input type="text" id="message" class="chat-input" placeholder="Escribe tu mensaje..." maxlength="100">
+        <button class="send-button" id="sendBtn">Enviar</button>
       </div>
     </div>
-
-    <div class="chat-input-area">
-      <input type="text" id="user" class="chat-input name-input" placeholder="Tu nombre" maxlength="15">
-      <input type="text" id="message" class="chat-input" placeholder="Escribe tu mensaje..." maxlength="100">
-      <button class="send-button" onclick="sendMessage()">Enviar</button>
-    </div>
   </div>
-</div>
 
-  
-  <div class="chat-body" id="chatBody">
-    <div class="chat-messages" id="chatMessages">
-      <div class="chat-message">
-        <strong>Sistema:</strong> <span>¡Bienvenido al chat en vivo! 🎮</span>
-      </div>
-    </div>
-    
-    <div class="chat-input-area">
-      <input type="text" id="user" class="chat-input name-input" placeholder="Tu nombre" maxlength="15">
-      <input type="text" id="message" class="chat-input" placeholder="Escribe tu mensaje..." maxlength="100">
-      <button class="send-button" onclick="sendMessage()">Enviar</button>
-    </div>
-  </div>
-</div>
-</section>
-
-
-
-  <!-- Firebase SDK -->
+  <!-- FIREBASE: mantener como módulo -->
   <script type="module">
-    // Importar Firebase
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
     import { getDatabase, ref, push, onChildAdded } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
 
-    // Configuración de tu proyecto Firebase
     const firebaseConfig = {
       apiKey: "AIzaSyA6gRu4i_Pv1xZbm3RgaWKcFZUGadAvoCY",
       authDomain: "gamesworld-593ff.firebaseapp.com",
@@ -369,31 +372,52 @@ Hollow Knight: Silksong
       measurementId: "G-2EJ6P8182Y"
     };
 
-    // Inicializar Firebase
     const app = initializeApp(firebaseConfig);
     const db = getDatabase(app);
-
-    // Referencia al chat
     const chatRef = ref(db, "chat");
 
-    // Enviar mensaje
+    // enviar mensaje (lo ponemos en window para que otros scripts no-module lo vean)
     window.sendMessage = function() {
       const user = document.getElementById("user").value || "Anónimo";
       const message = document.getElementById("message").value;
-      if(message.trim() !== "") {
+      if (message.trim() !== "") {
         push(chatRef, { user, message });
         document.getElementById("message").value = "";
       }
     };
 
-    // Escuchar nuevos mensajes
-    const chatBox = document.getElementById("chat-box");
+    // escuchar nuevos mensajes -> usar el id real: chatMessages
+    const chatBox = document.getElementById("chatMessages");
     onChildAdded(chatRef, (snapshot) => {
       const data = snapshot.val();
-      const p = document.createElement("p");
-      p.innerHTML = `<strong>${data.user}:</strong> ${data.message}`;
+      const p = document.createElement("div"); // div para mantener estilo
+      p.className = "chat-message";
+      p.innerHTML = `<strong>${data.user}:</strong> <span>${data.message}</span>`;
       chatBox.appendChild(p);
       chatBox.scrollTop = chatBox.scrollHeight;
+    });
+  </script>
+
+  <!-- JS normal: toggle y binding del botón enviar -->
+  <script>
+    // Toggle minimizar / expandir
+    const chatWidget = document.getElementById("chatWidget");
+    const chatHeader = chatWidget.querySelector(".chat-header");
+    chatHeader.addEventListener("click", () => {
+      chatWidget.classList.toggle("minimized");
+    });
+
+    // Botón enviar: usa la función creada en el módulo
+    document.getElementById("sendBtn").addEventListener("click", () => {
+      if (typeof window.sendMessage === "function") window.sendMessage();
+    });
+
+    // también enviar con Enter en el input mensaje
+    document.getElementById("message").addEventListener("keydown", (e) => {
+      if (e.key === "Enter") {
+        e.preventDefault();
+        if (typeof window.sendMessage === "function") window.sendMessage();
+      }
     });
   </script>
 
