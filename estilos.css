@@ -388,7 +388,7 @@ nav a:hover {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    width: 280px;
+    width: 20px;
     background: linear-gradient(145deg, rgba(17, 17, 17, 0.95), rgba(26, 26, 46, 0.95));
     backdrop-filter: blur(15px);
     border: 2px solid #00ff88;
@@ -683,3 +683,4 @@ nav a:hover {
         height: 300px;
     }
 }
+
