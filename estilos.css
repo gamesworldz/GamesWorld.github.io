@@ -506,3 +506,63 @@
                 <a href="#" class="btn directo">Jugar Directo</a>
             </div>
         </div>
+
+/* 🎮 CHAT */
+#chat {
+  width: 350px;
+  background: #111;
+  border: 1px solid #00ff88;
+  border-radius: 12px;
+  padding: 10px;
+  margin: 20px auto;
+  color: #fff;
+  font-family: 'Rajdhani', sans-serif;
+  box-shadow: 0 0 10px rgba(0, 255, 136, 0.4);
+}
+
+#chat h2 {
+  text-align: center;
+  color: #00ff88;
+  margin-bottom: 10px;
+}
+
+#chat-box {
+  background: #1a1a1a;
+  border-radius: 8px;
+  padding: 8px;
+  height: 250px;
+  overflow-y: auto;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+#chat input {
+  border: 1px solid #00ff88;
+  background: #111;
+  color: #fff;
+  padding: 6px;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+#chat input::placeholder {
+  color: #888;
+}
+
+#chat button {
+  background: #00ff88;
+  border: none;
+  color: #111;
+  font-weight: bold;
+  padding: 6px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+#chat button:hover {
+  background: #00cc66;
+}
+
+
+
