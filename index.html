@@ -317,101 +317,88 @@ Hollow Knight: Silksong
       <!-- ... resto de juegos ... -->
     </div>
   </section>
-
-  <!-- CHAT WIDGET (solo uno, bien estructurado) -->
-  <div class="chat-widget minimized" id="chatWidget">
-    <div class="chat-header">
-      <div class="chat-title">💬 Chat en Vivo</div>
-      <span class="chat-toggle">▼</span>
-    </div>
-
-    <div class="chat-body" id="chatBody">
-      <div class="chat-messages" id="chatMessages">
-        <div class="chat-message">
-          <strong>Sistema:</strong> <span>¡Bienvenido al chat en vivo! 🎮</span>
-        </div>
-      </div>
-
-      <div class="chat-input-area">
-        <input type="text" id="user" class="chat-input name-input" placeholder="Tu nombre" maxlength="15">
-        <input type="text" id="message" class="chat-input" placeholder="Escribe tu mensaje..." maxlength="100">
-        <button class="send-button" id="sendBtn">Enviar</button>
-      </div>
-    </div>
+<!-- CHAT WIDGET -->
+<div class="chat-widget minimized" id="chatWidget">
+  <div class="chat-header">
+    <div class="chat-title">💬 Chat en Vivo</div>
+    <span class="chat-toggle">▼</span>
   </div>
 
-  <!-- FIREBASE: mantener como módulo -->
-  <script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-    import { getDatabase, ref, push, onChildAdded } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
+  <div class="chat-body" id="chatBody">
+    <div class="chat-messages" id="chatMessages">
+      <div class="chat-message">
+        <strong>Sistema:</strong> <span>¡Bienvenido al chat en vivo! 🎮</span>
+      </div>
+    </div>
 
-    const firebaseConfig = {
-      apiKey: "AIzaSyA6gRu4i_Pv1xZbm3RgaWKcFZUGadAvoCY",
-      authDomain: "gamesworld-593ff.firebaseapp.com",
-      databaseURL: "https://gamesworld-593ff-default-rtdb.firebaseio.com",
-      projectId: "gamesworld-593ff",
-      storageBucket: "gamesworld-593ff.appspot.com",
-      messagingSenderId: "58817223081",
-      appId: "1:58817223081:web:b67f089da4a8c0db29ccb8",
-      measurementId: "G-2EJ6P8182Y"
-    };
+    <div class="chat-input-area">
+      <input type="text" id="user" class="chat-input name-input" placeholder="Tu nombre" maxlength="15">
+      <input type="text" id="message" class="chat-input" placeholder="Escribe tu mensaje..." maxlength="100">
+      <button class="send-button" id="sendBtn">Enviar</button>
+    </div>
+  </div>
+</div>
 
-    const app = initializeApp(firebaseConfig);
-    const db = getDatabase(app);
-    const chatRef = ref(db, "chat");
+<!-- Firebase SDK -->
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+  import { getDatabase, ref, push, onChildAdded } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
 
-    // enviar mensaje (lo ponemos en window para que otros scripts no-module lo vean)
-    window.sendMessage = function() {
-      const user = document.getElementById("user").value || "Anónimo";
-      const message = document.getElementById("message").value;
-      if (message.trim() !== "") {
-        push(chatRef, { user, message });
-        document.getElementById("message").value = "";
-      }
-    };
+  const firebaseConfig = {
+    apiKey: "AIzaSyA6gRu4i_Pv1xZbm3RgaWKcFZUGadAvoCY",
+    authDomain: "gamesworld-593ff.firebaseapp.com",
+    databaseURL: "https://gamesworld-593ff-default-rtdb.firebaseio.com",
+    projectId: "gamesworld-593ff",
+    storageBucket: "gamesworld-593ff.appspot.com",
+    messagingSenderId: "58817223081",
+    appId: "1:58817223081:web:b67f089da4a8c0db29ccb8",
+    measurementId: "G-2EJ6P8182Y"
+  };
 
-    // escuchar nuevos mensajes -> usar el id real: chatMessages
-    const chatBox = document.getElementById("chatMessages");
-    onChildAdded(chatRef, (snapshot) => {
-      const data = snapshot.val();
-      const p = document.createElement("div"); // div para mantener estilo
-      p.className = "chat-message";
-      p.innerHTML = `<strong>${data.user}:</strong> <span>${data.message}</span>`;
-      chatBox.appendChild(p);
-      chatBox.scrollTop = chatBox.scrollHeight;
-    });
-    
-   <!-- JS normal: toggle y binding del botón enviar -->
-  <script>
-    const chatWidget = document.getElementById("chatWidget");
-    const chatHeader = chatWidget.querySelector(".chat-header");
+  const app = initializeApp(firebaseConfig);
+  const db = getDatabase(app);
+  const chatRef = ref(db, "chat");
 
-    // Toggle minimizar / expandir
-    chatHeader.addEventListener("click", () => {
-      chatWidget.classList.toggle("minimized");
-    });
+  window.sendMessage = function() {
+    const user = document.getElementById("user").value || "Anónimo";
+    const message = document.getElementById("message").value;
+    if (message.trim() !== "") {
+      push(chatRef, { user, message });
+      document.getElementById("message").value = "";
+    }
+  };
 
-    // Botón enviar
-    document.getElementById("sendBtn").addEventListener("click", () => {
+  const chatBox = document.getElementById("chatMessages");
+  onChildAdded(chatRef, (snapshot) => {
+    const data = snapshot.val();
+    const p = document.createElement("div");
+    p.className = "chat-message";
+    p.innerHTML = `<strong>${data.user}:</strong> <span>${data.message}</span>`;
+    chatBox.appendChild(p);
+    chatBox.scrollTop = chatBox.scrollHeight;
+  });
+</script>
+
+<!-- JS normal: toggle y botón enviar -->
+<script>
+  const chatWidget = document.getElementById("chatWidget");
+  const chatHeader = chatWidget.querySelector(".chat-header");
+
+  chatHeader.addEventListener("click", () => {
+    chatWidget.classList.toggle("minimized"); // alterna mostrar/ocultar
+  });
+
+  document.getElementById("sendBtn").addEventListener("click", () => {
+    if (typeof window.sendMessage === "function") window.sendMessage();
+  });
+
+  document.getElementById("message").addEventListener("keydown", (e) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
       if (typeof window.sendMessage === "function") window.sendMessage();
-    });
-
-    // Enter para enviar
-    document.getElementById("message").addEventListener("keydown", (e) => {
-      if (e.key === "Enter") {
-        e.preventDefault();
-        if (typeof window.sendMessage === "function") window.sendMessage();
-      }
-    });
-  </script>
-
-</body>
-</html>
-
-
-
-</body>
-</html>
+    }
+  });
+</script>
 
 
 
