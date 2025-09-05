@@ -380,41 +380,39 @@ Hollow Knight: Silksong
       chatBox.appendChild(p);
       chatBox.scrollTop = chatBox.scrollHeight;
     });
-  </script>
-
-  <!-- JS normal: toggle y binding del botón enviar -->
+    
+   <!-- JS normal: toggle y binding del botón enviar -->
   <script>
-    // Toggle minimizar / expandir
     const chatWidget = document.getElementById("chatWidget");
     const chatHeader = chatWidget.querySelector(".chat-header");
+
+    // Toggle minimizar / expandir
     chatHeader.addEventListener("click", () => {
       chatWidget.classList.toggle("minimized");
     });
 
-    // Botón enviar: usa la función creada en el módulo
+    // Botón enviar
     document.getElementById("sendBtn").addEventListener("click", () => {
       if (typeof window.sendMessage === "function") window.sendMessage();
     });
 
-    // también enviar con Enter en el input mensaje
+    // Enter para enviar
     document.getElementById("message").addEventListener("keydown", (e) => {
       if (e.key === "Enter") {
         e.preventDefault();
         if (typeof window.sendMessage === "function") window.sendMessage();
       }
     });
-<script>
-  const chatWidget = document.getElementById("chatWidget");
-  const chatHeader = document.querySelector(".chat-header");
+  </script>
 
-  chatHeader.addEventListener("click", () => {
-    chatWidget.classList.toggle("minimized");
-  });
-</script>
+</body>
+</html>
+
 
 
 </body>
 </html>
+
 
 
 
