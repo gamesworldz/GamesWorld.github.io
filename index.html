@@ -311,15 +311,27 @@ Hollow Knight: Silksong
         <a href="https://pixeldrain.com/u/wNMP7oGe" target="_blank" class="btn directo">Descargar directo</a>
       </div>
 
-
-      
-    </div>
-  </section>
-
-   💬 Chat en Vivo
-    </div>
+      <div class="chat-widget minimized" id="chatWidget">
+  <div class="chat-header">
+    💬 Chat en Vivo
     <span class="chat-toggle">▼</span>
   </div>
+  
+  <div class="chat-body" id="chatBody">
+    <div class="chat-messages" id="chatMessages">
+      <div class="chat-message">
+        <strong>Sistema:</strong> <span>¡Bienvenido al chat en vivo! 🎮</span>
+      </div>
+    </div>
+
+    <div class="chat-input-area">
+      <input type="text" id="user" class="chat-input name-input" placeholder="Tu nombre" maxlength="15">
+      <input type="text" id="message" class="chat-input" placeholder="Escribe tu mensaje..." maxlength="100">
+      <button class="send-button" onclick="sendMessage()">Enviar</button>
+    </div>
+  </div>
+</div>
+
   
   <div class="chat-body" id="chatBody">
     <div class="chat-messages" id="chatMessages">
@@ -387,6 +399,7 @@ Hollow Knight: Silksong
 
 </body>
 </html>
+
 
 
 
