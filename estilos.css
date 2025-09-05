@@ -414,6 +414,11 @@ nav a:hover {
   flex-direction: column;
 }
 
+.chat-widget.minimized .chat-body {
+  display: none;
+}
+
+
 .chat-messages {
   flex: 1;
   padding: 10px;
@@ -579,6 +584,7 @@ nav a:hover {
         height: 300px;
     }
 }
+
 
 
 
