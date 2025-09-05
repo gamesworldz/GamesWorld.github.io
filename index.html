@@ -318,35 +318,15 @@ Hollow Knight: Silksong
 
 <!-- 📢 CHAT EN VIVO -->
 <section id="chat">
-  <h2 style="color:#00ff88; text-align:center; margin-bottom:10px;">💬 Chat en Vivo</h2>
-  
-  <div id="chat-box" 
-       style="border:1px solid #00ff88; 
-              border-radius:10px; 
-              padding:10px; 
-              height:300px; 
-              overflow-y:auto; 
-              background:#1a1a1a; 
-              color:#e0e0e0; 
-              font-family:Arial, sans-serif;
-              margin-bottom:10px;">
-  </div>
-
+  <h2>💬 Chat en Vivo</h2>
+  <div id="chat-box"></div>
   <div style="display:flex; gap:5px;">
-    <input id="user" 
-           type="text" 
-           placeholder="Tu nombre" 
-           style="flex:1; padding:8px; border-radius:5px; border:1px solid #00ff88; background:#111; color:#fff;">
-    <input id="message" 
-           type="text" 
-           placeholder="Escribe un mensaje..." 
-           style="flex:2; padding:8px; border-radius:5px; border:1px solid #00ff88; background:#111; color:#fff;">
-    <button onclick="sendMessage()" 
-            style="padding:8px 15px; background:#00ff88; border:none; border-radius:5px; cursor:pointer; font-weight:bold;">
-      Enviar
-    </button>
+    <input id="user" type="text" placeholder="Tu nombre" style="flex:1;">
+    <input id="message" type="text" placeholder="Escribe un mensaje..." style="flex:2;">
+    <button onclick="sendMessage()">Enviar</button>
   </div>
 </section>
+
 
 
   <!-- Firebase SDK -->
@@ -397,6 +377,7 @@ Hollow Knight: Silksong
 
 </body>
 </html>
+
 
 
 
