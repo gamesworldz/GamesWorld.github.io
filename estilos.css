@@ -414,6 +414,7 @@ nav a:hover {
   flex-direction: column;
 }
 
+/* Oculta el chat-body cuando el widget tiene la clase minimized */
 .chat-widget.minimized .chat-body {
   display: none;
 }
@@ -584,6 +585,7 @@ nav a:hover {
         height: 300px;
     }
 }
+
 
 
 
