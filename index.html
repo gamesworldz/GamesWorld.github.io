@@ -316,15 +316,25 @@ Hollow Knight: Silksong
     </div>
   </section>
 
-<!-- 📢 CHAT EN VIVO -->
-<section id="chat">
-  <h2>💬 Chat en Vivo</h2>
-  <div id="chat-box"></div>
-  <div style="display:flex; gap:5px;">
-    <input id="user" type="text" placeholder="Tu nombre" style="flex:1;">
-    <input id="message" type="text" placeholder="Escribe un mensaje..." style="flex:2;">
-    <button onclick="sendMessage()">Enviar</button>
+   💬 Chat en Vivo
+    </div>
+    <span class="chat-toggle">▼</span>
   </div>
+  
+  <div class="chat-body" id="chatBody">
+    <div class="chat-messages" id="chatMessages">
+      <div class="chat-message">
+        <strong>Sistema:</strong> <span>¡Bienvenido al chat en vivo! 🎮</span>
+      </div>
+    </div>
+    
+    <div class="chat-input-area">
+      <input type="text" id="user" class="chat-input name-input" placeholder="Tu nombre" maxlength="15">
+      <input type="text" id="message" class="chat-input" placeholder="Escribe tu mensaje..." maxlength="100">
+      <button class="send-button" onclick="sendMessage()">Enviar</button>
+    </div>
+  </div>
+</div>
 </section>
 
 
@@ -377,6 +387,7 @@ Hollow Knight: Silksong
 
 </body>
 </html>
+
 
 
 
