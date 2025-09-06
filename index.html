@@ -246,6 +246,7 @@
         <a href="https://cuty.io/Uyb10Y7Me" class="btn publicidad">Descargar</a>
       </div>
 
+
               <!-- 🎮 Juego 28 -->
       <div class="juego">
         <div class="etiqueta nuevo">Nuevo</div>
@@ -326,6 +327,7 @@ Hollow Knight: Silksong
 
   <!-- JS normal: toggle y botón enviar -->
   <script>
+    // Funciones del chat
     const chatWidget = document.getElementById("chatWidget");
     const chatHeader = chatWidget.querySelector(".chat-header");
 
@@ -343,18 +345,44 @@ Hollow Knight: Silksong
         if (typeof window.sendMessage === "function") window.sendMessage();
       }
     });
+
+    // Funciones del modal de juegos
+    function openGameModal(title, image, description, os, cpu, ram, gpu, directx, storage, downloadUrl) {
+      document.getElementById('modalGameTitle').textContent = title;
+      document.getElementById('modalGameImage').src = image;
+      document.getElementById('modalGameDescription').textContent = description;
+      document.getElementById('modalOS').textContent = os;
+      document.getElementById('modalCPU').textContent = cpu;
+      document.getElementById('modalRAM').textContent = ram;
+      document.getElementById('modalGPU').textContent = gpu;
+      document.getElementById('modalDirectX').textContent = directx;
+      document.getElementById('modalStorage').textContent = storage;
+      document.getElementById('modalDownloadBtn').href = downloadUrl;
+      
+      document.getElementById('gameModal').style.display = 'block';
+      document.body.style.overflow = 'hidden'; // Prevenir scroll del body
+    }
+
+    function closeGameModal() {
+      document.getElementById('gameModal').style.display = 'none';
+      document.body.style.overflow = 'auto'; // Restaurar scroll del body
+    }
+
+    // Cerrar modal al hacer click fuera de él
+    window.addEventListener('click', function(event) {
+      const modal = document.getElementById('gameModal');
+      if (event.target === modal) {
+        closeGameModal();
+      }
+    });
+
+    // Cerrar modal con la tecla Escape
+    document.addEventListener('keydown', function(event) {
+      if (event.key === 'Escape') {
+        closeGameModal();
+      }
+    });
   </script>
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
