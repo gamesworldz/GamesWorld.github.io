@@ -246,19 +246,13 @@
         <a href="https://cuty.io/Uyb10Y7Me" class="btn publicidad">Descargar</a>
       </div>
 
-
-              <!-- 🎮 Juego 28 -->
+      <!-- 🎮 Juego 28 -->
       <div class="juego">
         <div class="etiqueta nuevo">Nuevo</div>
         <img src="https://i.pinimg.com/1200x/b8/33/38/b83338e39e5d64abd7370022fcf44c56.jpg">
-        <h3> 
-Hollow Knight: Silksong
-        
-        CONTRASEÑA</h3>
+        <h3>Hollow Knight: Silksong (CONTRASEÑA)</h3>
         <a href="https://cuty.io/GLV7L" class="btn publicidad">Descargar (CONTRASEÑA)</a>
-        <a href="https://pixeldrain.com/u/wNMP7oGe" target="_blank" class="btn directo">Descargar directo</a>
       </div>
-
 
     </div>
   </section>
@@ -347,7 +341,8 @@ Hollow Knight: Silksong
     });
 
     // Funciones del modal de juegos
-    function openGameModal(title, image, description, os, cpu, ram, gpu, directx, storage, downloadUrl) {
+    window.openGameModal = function(title, image, description, os, cpu, ram, gpu, directx, storage, downloadUrl) {
+      console.log('Abriendo modal para:', title); // Para debug
       document.getElementById('modalGameTitle').textContent = title;
       document.getElementById('modalGameImage').src = image;
       document.getElementById('modalGameDescription').textContent = description;
@@ -363,7 +358,7 @@ Hollow Knight: Silksong
       document.body.style.overflow = 'hidden'; // Prevenir scroll del body
     }
 
-    function closeGameModal() {
+    window.closeGameModal = function() {
       document.getElementById('gameModal').style.display = 'none';
       document.body.style.overflow = 'auto'; // Restaurar scroll del body
     }
