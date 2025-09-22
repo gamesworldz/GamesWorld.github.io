@@ -430,6 +430,36 @@ nav a:hover {
   overflow-y: auto;
 }
 
+.chat-messages {
+  flex: 1;
+  padding: 10px;
+  overflow-y: auto;
+}
+
+/* 💡 ESTILOS NUEVOS PARA ORDENAR MENSAJES */
+.chat-message {
+  margin-bottom: 12px;
+  padding: 8px 12px;
+  border-radius: 6px;
+  background: #1a1a1a;
+  color: #f1f1f1;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.chat-message strong {
+  display: block;
+  color: #00ff99;
+  margin-bottom: 4px;
+  font-size: 13px;
+}
+
+.chat-message.creator {
+  background: #0f2b1e;
+  border-left: 4px solid #00ff99;
+}
+
+
 .chat-input {
     flex: 2;
     padding: 8px 12px;
@@ -539,3 +569,4 @@ nav a:hover {
         right: 5%;
     }
 }
+
